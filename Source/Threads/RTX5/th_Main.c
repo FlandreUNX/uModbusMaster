@@ -4,7 +4,7 @@
  *  | || | |\/| / _ \/ _` | '_ \ || (_-< |\/| / _` (_-<  _/ -_) '_|
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
- * File      : th_ModbusMaster.c
+ * File      : th_Main.c
  * This file is part of "uModbusMaster"
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,8 @@
 /*@{*/
 
 #include "stm32f0xx.h"                  // Device header
-#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
+#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
+
 
 #include <stdlib.h>
 #include <string.h>
@@ -53,6 +54,7 @@
 /*@{*/
 
 #include "../modules/uModbusMaster/mbm.h"
+uMBM_ExternDev(SensorHub, 0);
 
 /*@}*/
 
@@ -70,11 +72,10 @@
 
 /*@{*/
 
-//uMBM_CreateDev(SensorHub, 0);
-uMBM_Device_t mbm_SensorHub_0;
+uint16_t rcvInputReg[10];
+uint16_t rcvLength;
 
 /*@}*/
-
 
 /**
  * @addtogroup thread
@@ -82,24 +83,34 @@ uMBM_Device_t mbm_SensorHub_0;
  
 /*@{*/
 
-osThreadId modbusMaster_ThreadID;
-
-void modbusMaster_Thread(void const *arg) {
+void th_Main(void const *argument) {
+  extern void modbusMaster_ThreadStart(void);
+  modbusMaster_ThreadStart();
+  
   for (;;) {
-    uMBM_Poll(uMBM_GetDev(SensorHub, 0));
+    osDelay(500);
+    
+    uMBM_GeneralReqPack_t pack;
+    pack.destAddr = 0x01;
+    pack.data.length = 10;
+    pack.regAddr = 0;
+    
+    uMBM_ErrCode_t err = uMBM_InputReg_Read(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
+    if (err != MBM_ERR_OK) {
+      for (;;);
+    }
+    else {
+      rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
+    }
   }
 }
-osThreadDef(modbusMaster_Thread, osPriorityNormal , 1, 0);
+osThreadDef(th_Main, osPriorityRealtime, 1, 0);
 
-
-void modbusMaster_ThreadStart(void) {
-  extern pMBM_Event_t mbm_Event;
-  extern pMBM_Serial_t mbm_Serial;
-  extern pMBM_Timer_t mbm_Timer;
-  uMBM_CoreInit(uMBM_GetDev(SensorHub, 0), &mbm_Event, &mbm_Serial, &mbm_Timer);
-  uMBM_Enable(uMBM_GetDev(SensorHub, 0));
-  
-  modbusMaster_ThreadID = osThreadCreate(osThread(modbusMaster_Thread), NULL);
+int main(void) {
+  osKernelInitialize();
+  osThreadCreate(osThread(th_Main), NULL);
+  osKernelStart();
+  for (;;);
 }
 
 /*@}*/

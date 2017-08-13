@@ -82,8 +82,6 @@ uint16_t rcvLength;
  
 /*@{*/
 
-
-
 int main(void) {
   osThreadSetPriority(osThreadGetId(), osPriorityRealtime);
 
@@ -103,7 +101,6 @@ int main(void) {
       for (;;);
     }
     else {
-      
       rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
     }
   }
