@@ -1,0 +1,10 @@
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\mbm.c
+.\objects\mbm.o: F:\Programs\Development\keil5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\mbm.o: F:\Programs\Development\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mbm.o: F:\Programs\Development\keil5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\mbm.o: F:\Programs\Development\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\../mbm.h
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\.././Core/mbmType.h
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\.././Core/mbmPort.h
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\.././mbmConfig.h
+.\objects\mbm.o: Source\modules\uModbusMaster\Core\./mbmCRC16.h
