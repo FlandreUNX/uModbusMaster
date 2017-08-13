@@ -1,763 +1,0 @@
-Dependencies for Project 'Motherboard', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Source\Threads\th_Main.c)(0x598FD295)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\th_main.o --omf_browse .\objects\th_main.crf --depend .\objects\th_main.d)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdlib.h)(0x59731952)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\string.h)(0x59731950)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdio.h)(0x59731954)
-I (Source\Threads\./thread.h)(0x598FD260)
-I (Source\Threads\../modules/uModbusMaster/mbm.h)(0x598FCF6D)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (Source\Threads\../modules/uModbusMaster/./Core/mbmType.h)(0x598FB8FD)
-I (Source\Threads\../modules/uModbusMaster/./Core/mbmPort.h)(0x598EE5D6)
-I (Source\Threads\../modules/uModbusMaster/./mbmConfig.h)(0x598FCFF3)
-F (.\Source\Threads\th_ModbusMaster.c)(0x598FD257)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\th_modbusmaster.o --omf_browse .\objects\th_modbusmaster.crf --depend .\objects\th_modbusmaster.d)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdlib.h)(0x59731952)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\string.h)(0x59731950)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdio.h)(0x59731954)
-I (Source\Threads\./thread.h)(0x598FD260)
-I (Source\Threads\../modules/uModbusMaster/mbm.h)(0x598FCF6D)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (Source\Threads\../modules/uModbusMaster/./Core/mbmType.h)(0x598FB8FD)
-I (Source\Threads\../modules/uModbusMaster/./Core/mbmPort.h)(0x598EE5D6)
-I (Source\Threads\../modules/uModbusMaster/./mbmConfig.h)(0x598FCFF3)
-F (.\Source\stdLib\src\stm32f0xx_adc.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_adc.o --omf_browse .\objects\stm32f0xx_adc.crf --depend .\objects\stm32f0xx_adc.d)
-I (.\Source\stdLib\inc\stm32f0xx_adc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_can.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_can.o --omf_browse .\objects\stm32f0xx_can.crf --depend .\objects\stm32f0xx_can.d)
-I (.\Source\stdLib\inc\stm32f0xx_can.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_cec.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_cec.o --omf_browse .\objects\stm32f0xx_cec.crf --depend .\objects\stm32f0xx_cec.d)
-I (.\Source\stdLib\inc\stm32f0xx_cec.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_comp.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_comp.o --omf_browse .\objects\stm32f0xx_comp.crf --depend .\objects\stm32f0xx_comp.d)
-I (.\Source\stdLib\inc\stm32f0xx_comp.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_crc.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_crc.o --omf_browse .\objects\stm32f0xx_crc.crf --depend .\objects\stm32f0xx_crc.d)
-I (.\Source\stdLib\inc\stm32f0xx_crc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_crs.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_crs.o --omf_browse .\objects\stm32f0xx_crs.crf --depend .\objects\stm32f0xx_crs.d)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_dac.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_dac.o --omf_browse .\objects\stm32f0xx_dac.crf --depend .\objects\stm32f0xx_dac.d)
-I (.\Source\stdLib\inc\stm32f0xx_dac.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_dbgmcu.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_dbgmcu.o --omf_browse .\objects\stm32f0xx_dbgmcu.crf --depend .\objects\stm32f0xx_dbgmcu.d)
-I (.\Source\stdLib\inc\stm32f0xx_dbgmcu.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_dma.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_dma.o --omf_browse .\objects\stm32f0xx_dma.crf --depend .\objects\stm32f0xx_dma.d)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_exti.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_exti.o --omf_browse .\objects\stm32f0xx_exti.crf --depend .\objects\stm32f0xx_exti.d)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_flash.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_flash.o --omf_browse .\objects\stm32f0xx_flash.crf --depend .\objects\stm32f0xx_flash.d)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_gpio.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_gpio.o --omf_browse .\objects\stm32f0xx_gpio.crf --depend .\objects\stm32f0xx_gpio.d)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_i2c.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_i2c.o --omf_browse .\objects\stm32f0xx_i2c.crf --depend .\objects\stm32f0xx_i2c.d)
-I (.\Source\stdLib\inc\stm32f0xx_i2c.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_iwdg.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_iwdg.o --omf_browse .\objects\stm32f0xx_iwdg.crf --depend .\objects\stm32f0xx_iwdg.d)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_misc.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_misc.o --omf_browse .\objects\stm32f0xx_misc.crf --depend .\objects\stm32f0xx_misc.d)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_pwr.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_pwr.o --omf_browse .\objects\stm32f0xx_pwr.crf --depend .\objects\stm32f0xx_pwr.d)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_rcc.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_rcc.o --omf_browse .\objects\stm32f0xx_rcc.crf --depend .\objects\stm32f0xx_rcc.d)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_rtc.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_rtc.o --omf_browse .\objects\stm32f0xx_rtc.crf --depend .\objects\stm32f0xx_rtc.d)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_spi.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_spi.o --omf_browse .\objects\stm32f0xx_spi.crf --depend .\objects\stm32f0xx_spi.d)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_syscfg.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_syscfg.o --omf_browse .\objects\stm32f0xx_syscfg.crf --depend .\objects\stm32f0xx_syscfg.d)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_tim.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_tim.o --omf_browse .\objects\stm32f0xx_tim.crf --depend .\objects\stm32f0xx_tim.d)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_usart.c)(0x57F7768A)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_usart.o --omf_browse .\objects\stm32f0xx_usart.crf --depend .\objects\stm32f0xx_usart.d)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\stdLib\src\stm32f0xx_wwdg.c)(0x54808D14)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\stm32f0xx_wwdg.o --omf_browse .\objects\stm32f0xx_wwdg.crf --depend .\objects\stm32f0xx_wwdg.d)
-I (.\Source\stdLib\inc\stm32f0xx_wwdg.h)(0x54808D12)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\modules\uModbusMaster\Port\pmContext.c)(0x598FD007)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\pmcontext.o --omf_browse .\objects\pmcontext.crf --depend .\objects\pmcontext.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Port\../core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Port\../core/mbmPort.h)(0x598EE5D6)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-F (.\Source\modules\uModbusMaster\Port\pmEvent.c)(0x598DC6F2)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\pmevent.o --omf_browse .\objects\pmevent.crf --depend .\objects\pmevent.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Port\../core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Port\../core/mbmPort.h)(0x598EE5D6)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\modules\uModbusMaster\Port\pmSerial.c)(0x598ECBE5)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\pmserial.o --omf_browse .\objects\pmserial.crf --depend .\objects\pmserial.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Port\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Port\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Port\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Port\.././mbmConfig.h)(0x598FCFF3)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\modules\uModbusMaster\Port\pmTimer.c)(0x598EE5C8)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\pmtimer.o --omf_browse .\objects\pmtimer.crf --depend .\objects\pmtimer.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Port\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Port\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Port\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Port\.././mbmConfig.h)(0x598FCFF3)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
-F (.\Source\modules\uModbusMaster\Core\mbm.c)(0x598FCFEE)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbm.o --omf_browse .\objects\mbm.crf --depend .\objects\mbm.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\string.h)(0x59731950)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-I (Source\modules\uModbusMaster\Core\./mbmCRC16.h)(0x598DC76A)
-F (.\Source\modules\uModbusMaster\mbm.h)(0x598FCF6D)()
-F (.\Source\modules\uModbusMaster\Core\mbmCRC16.c)(0x598ECBA2)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmcrc16.o --omf_browse .\objects\mbmcrc16.crf --depend .\objects\mbmcrc16.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-F (.\Source\modules\uModbusMaster\Core\mbmCRC16.h)(0x598DC76A)()
-F (.\Source\modules\uModbusMaster\Core\mbmUtils.c)(0x598FAFC1)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmutils.o --omf_browse .\objects\mbmutils.crf --depend .\objects\mbmutils.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-I (Source\modules\uModbusMaster\Core\./mbmCRC16.h)(0x598DC76A)
-F (.\Source\modules\uModbusMaster\Core\mbmUtils.h)(0x598F21CE)()
-F (.\Source\modules\uModbusMaster\Core\mbmFuncInput.c)(0x598FCD4C)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmfuncinput.o --omf_browse .\objects\mbmfuncinput.crf --depend .\objects\mbmfuncinput.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-F (.\Source\modules\uModbusMaster\Core\mbmFuncCoils.c)(0x598FD0D1)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmfunccoils.o --omf_browse .\objects\mbmfunccoils.crf --depend .\objects\mbmfunccoils.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-I (Source\modules\uModbusMaster\Core\./mbmUtils.h)(0x598F21CE)
-F (.\Source\modules\uModbusMaster\Core\mbmFuncHolding.c)(0x598FCD45)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmfuncholding.o --omf_browse .\objects\mbmfuncholding.crf --depend .\objects\mbmfuncholding.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-F (.\Source\modules\uModbusMaster\Core\mbmFuncDisc.c)(0x598FD15F)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\mbmfuncdisc.o --omf_browse .\objects\mbmfuncdisc.crf --depend .\objects\mbmfuncdisc.d)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdbool.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (Source\modules\uModbusMaster\Core\../mbm.h)(0x598FCF6D)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmType.h)(0x598FB8FD)
-I (Source\modules\uModbusMaster\Core\.././Core/mbmPort.h)(0x598EE5D6)
-I (Source\modules\uModbusMaster\Core\.././mbmConfig.h)(0x598FCFF3)
-F (.\Source\modules\uModbusMaster\Core\mbmPort.h)(0x598EE5D6)()
-F (.\Source\modules\uModbusMaster\Core\mbmType.h)(0x598FB8FD)()
-F (.\Source\modules\uModbusMaster\mbmConfig.h)(0x598FCFF3)()
-F (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM0.lib)(0x58984990)()
-F (RTE\CMSIS\RTX_Conf_CM.c)(0x598C85B2)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\cmsis_os.h)(0x58984990)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC\RTX_CM_lib.h)(0x58984990)
-F (RTE\Device\STM32F072C8\startup_stm32f072.s)(0x548E991E)(--cpu Cortex-M0 --pd "__RTX SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F072 SETA 1"--list .\listings\startup_stm32f072.lst --xref -o .\objects\startup_stm32f072.o --depend .\objects\startup_stm32f072.d)
-F (RTE\Device\STM32F072C8\system_stm32f0xx.c)(0x598FCF8E)(--c99 -c --cpu Cortex-M0 -D__RTX -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\Source -I .\Source\stdLib\inc-I.\RTE\_Target_1-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\INC-IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F072 -DSTM32F072 -DUSE_STDPERIPH_DRIVER-o .\objects\system_stm32f0xx.o --omf_browse .\objects\system_stm32f0xx.crf --depend .\objects\system_stm32f0xx.d)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\stm32f0xx.h)(0x548E991E)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
-I (F:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Include\system_stm32f0xx.h)(0x548E991E)
-I (.\Source\stdLib\inc\stm32f0xx_conf.h)(0x58A7DCF6)
-I (.\Source\stdLib\inc\stm32f0xx_crs.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_dma.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_exti.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_flash.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_gpio.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_syscfg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_iwdg.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_pwr.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rcc.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_rtc.h)(0x58AA5D88)
-I (.\Source\stdLib\inc\stm32f0xx_spi.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_tim.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_usart.h)(0x54808D12)
-I (.\Source\stdLib\inc\stm32f0xx_misc.h)(0x54808D12)
