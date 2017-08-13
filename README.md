@@ -380,7 +380,7 @@ osThreadId SensorHub_1_ThreadID;
 
 void SensorHub_1_Thread(void const *arg) {
   for (;;) {
-    uMBM_Poll(uMBM_GetDev(SensorHub, 0));
+    uMBM_Poll(uMBM_GetDev(SensorHub, 1));
   }
 }
 osThreadDef(SensorHub_1_Thread, osPriorityNormal , 1, 0);
