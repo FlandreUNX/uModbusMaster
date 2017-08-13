@@ -63,7 +63,7 @@ Rev.C版本特征如下:
 
 对协议栈的移植主要还是两个方面:软件的pmEvent以及pmContext,硬件的pmSerial以及pmTimer;
 
-> 注：本文移植只要是以STM32F072C8t6+KIEL5+RTX_OS环境下的移植,裸奔请根据实际情况来配置;
+> 注：本程序的例程移植是以STM32F072C8t6+KIEL5+RTX_OS环境下的移植,裸奔请根据实际情况来配置
 
 ### 2.1. pmEvent
 
