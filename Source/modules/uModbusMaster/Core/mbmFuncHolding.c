@@ -40,8 +40,7 @@
 /*@{*/
 
 /* ----------------------- uMBM_HoldingReg_Read -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
+/**  uMBM_GeneralReqPack_t pack;
   pack.destAddr = 0x01;
   pack.data.length = 10;
   pack.regAddr = 0;
@@ -53,6 +52,7 @@
     uint16_t rcvHoldingReg[10];
     uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg);
   }
+
  */
  
 /* ----------------------- uMBM_HoldingReg_SingleWrite -----------------------------*/

@@ -83,7 +83,6 @@ uMBM_Device_t mbm_SensorHub_0;
 /*@{*/
 
 osThreadId modbusMaster_ThreadID;
-
 void modbusMaster_Thread(void const *arg) {
   for (;;) {
     uMBM_Poll(uMBM_GetDev(SensorHub, 0));
