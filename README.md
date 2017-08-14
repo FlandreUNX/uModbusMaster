@@ -319,6 +319,8 @@ void modbusMaster_ThreadStart(void) {
 #include "../modules/uModbusMaster/mbm.h"
 uMBM_ExternDev(SensorHub, 0);
 
+uint16_t rcvLength;
+
 int main(void) {
   osThreadSetPriority(osThreadGetId(), osPriorityRealtime);
 
@@ -353,10 +355,13 @@ int main(void) {
 ```C
 #include "../modules/uModbusMaster/mbm.h"
 
+/**
+ * SensorHub_0主机守护线程
+ */
+
 uMBM_CreateDev(SensorHub, 0);
 
 osThreadId SensorHub_0_ThreadID;
-
 void SensorHub_0_Thread(void const *arg) {
   for (;;) {
     uMBM_Poll(uMBM_GetDev(SensorHub, 0));
@@ -374,10 +379,13 @@ void SensorHub_0_ThreadStart(void) {
   SensorHub_0_ThreadID = osThreadCreate(osThread(SensorHub_0_Thread), NULL);
 }
 
+/**
+ * SensorHub_1主机守护线程
+ */
+
 uMBM_CreateDev(SensorHub, 1);
 
 osThreadId SensorHub_1_ThreadID;
-
 void SensorHub_1_Thread(void const *arg) {
   for (;;) {
     uMBM_Poll(uMBM_GetDev(SensorHub, 1));
@@ -395,6 +403,11 @@ void SensorHub_1_ThreadStart(void) {
   SensorHub_1_ThreadID = osThreadCreate(osThread(SensorHub_1_Thread), NULL);
 }
 
+/**
+ * 主线程
+ */
+
+uint16_t rcvLength;
 
 int main(void) {
   osThreadSetPriority(osThreadGetId(), osPriorityRealtime);
@@ -433,7 +446,7 @@ int main(void) {
       for (;;);
     }
     else {
-      rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 1), rcvInputReg);
+      rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 1), rcvInputReg);
     }
   }
 }
@@ -444,7 +457,7 @@ int main(void) {
 
 # 其他
 
-如果各位客观喜欢该程序,可以给我点个赞star或者Fork;本程序无偿使用,但是**请标明程序出处**,谢谢合作;感谢[armink][2]作者的源码的贡献!
+如果各位看官喜欢该程序,可以给我点个赞star或者Fork;本程序无偿使用,但是**请标明程序出处**,谢谢合作;感谢[armink][2]作者的源码的贡献!
 
 
 
