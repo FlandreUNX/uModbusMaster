@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : pmEvent.c
- * This file is part of "uModbusMaster"
+ *  Copyright (C) <2017>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
