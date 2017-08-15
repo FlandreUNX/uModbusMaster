@@ -91,6 +91,16 @@
 
 /*@{*/
 
+/**
+ * 读取从机DiscreteInput寄存器数据
+ * @note pack.data.length为待读取数量
+ *
+ * @param *dev 主机
+ * @param *pack 目标请求包
+ * @param timout 超时值
+ *
+ * @return [uMBM_ErrCode_t] -> 操作结果
+ */
 uMBM_ErrCode_t uMBM_DiscreteInput_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
   /*查询同步锁*/
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
