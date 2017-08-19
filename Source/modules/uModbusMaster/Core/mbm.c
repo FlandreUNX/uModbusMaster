@@ -26,13 +26,11 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
- 
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmPort.h"
 #include "./mbmCRC16.h"
 #include "../mbmConfig.h"
-
 
 /**
  * @addtogroup modbus 方法集合

@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : th_Main.c
- * This file is part of "uModbusMaster"
+ *  Copyright (C) <2017>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -28,8 +28,7 @@
 /*@{*/
 
 #include "stm32f0xx.h"                  // Device header
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
-
+#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
 
 #include <stdlib.h>
 #include <string.h>
@@ -83,7 +82,9 @@ uint16_t rcvLength;
  
 /*@{*/
 
-void th_Main(void const *argument) {
+int main(void) {
+  osThreadSetPriority(osThreadGetId(), osPriorityRealtime);
+
   extern void modbusMaster_ThreadStart(void);
   modbusMaster_ThreadStart();
   
@@ -103,14 +104,6 @@ void th_Main(void const *argument) {
       rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
     }
   }
-}
-osThreadDef(th_Main, osPriorityRealtime, 1, 0);
-
-int main(void) {
-  osKernelInitialize();
-  osThreadCreate(osThread(th_Main), NULL);
-  osKernelStart();
-  for (;;);
 }
 
 /*@}*/

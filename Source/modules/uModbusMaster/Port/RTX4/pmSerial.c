@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : pmSerial.c
- * This file is part of "uModbusMaster"
+ *  Copyright (C) <2017>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -36,7 +36,7 @@
 #include "../Core/mbmPort.h"
 
 /* ----------------------- OS support include files -----------------------------*/
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
+#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
 
 /* ----------------------- Hardware support include files -----------------------------*/
 #include "stm32f0xx.h"                  // Device header

@@ -32,7 +32,6 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
-
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "./Core/mbmType.h"
 #include "./Core/mbmPort.h"

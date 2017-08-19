@@ -433,13 +433,15 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\objects\startup_stm32f072.d -o.\objects\startup_stm32f072.o -I.\
-RTE\_Target_1 -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\In
-clude -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\RTOS\RTX\I
-NC -IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_DFP\1.4.0\Device\Inc
-lude --predefine="__RTX SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__
-UVISION_VERSION SETA 524" --predefine="_RTE_ SETA 1" --predefine="STM32F072 SET
-A 1" --list=.\listings\startup_stm32f072.lst RTE\Device\STM32F072C8\startup_stm
-32f072.s
+RTE\CMSIS -I.\RTE\_Target_1 -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\
+5.0.1\CMSIS\Include -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CM
+SIS\RTOS2\Include -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSI
+S\RTOS2\RTX\Include -IF:\Programs\Development\keil5\ARM\PACK\ARM\CMSIS\5.0.1\CM
+SIS\RTOS2\RTX\Include1 -IF:\Programs\Development\keil5\ARM\PACK\Keil\STM32F0xx_
+DFP\1.4.0\Device\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION
+_VERSION SETA 524" --predefine="_RTE_ SETA 1" --predefine="STM32F072 SETA 1" --
+list=.\listings\startup_stm32f072.lst RTE\Device\STM32F072C8\startup_stm32f072.
+s
 
 
 
@@ -1008,4 +1010,4 @@ Symbol: __main
       At line 161 in file RTE\Device\STM32F072C8\startup_stm32f072.s
 Comment: __main used once
 2 symbols
-393 symbols in table
+392 symbols in table

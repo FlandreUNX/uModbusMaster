@@ -34,7 +34,7 @@
  * 响应超时值
  * @note none
  */
-#define RESPOND_TIMEOUT_MS   (1000)   
+#define RESPOND_TIMEOUT_MS   (100)   
 
 /*@}*/
 

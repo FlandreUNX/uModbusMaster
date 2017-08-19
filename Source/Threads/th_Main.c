@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : th_Main.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ * This file is part of "uModbusMaster"
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -28,23 +28,13 @@
 /*@{*/
 
 #include "stm32f0xx.h"                  // Device header
-#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
+#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
 /*@}*/ 
-
-/**
- * @addtogroup thread
- */
-
-/*@{*/
-
-#include "./thread.h"
-
-/*@}*/
 
 /**
  * @addtogroup modules
@@ -82,9 +72,7 @@ uint16_t rcvLength;
  
 /*@{*/
 
-int main(void) {
-  osThreadSetPriority(osThreadGetId(), osPriorityRealtime);
-
+__NO_RETURN void th_Main(void *argument) {
   extern void modbusMaster_ThreadStart(void);
   modbusMaster_ThreadStart();
   
@@ -104,6 +92,18 @@ int main(void) {
       rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
     }
   }
+}
+
+int main(void) {
+  osKernelInitialize();
+  
+  osThreadNew(th_Main, NULL, NULL);
+  
+  extern void modbusMaster_ThreadStart(void);
+  modbusMaster_ThreadStart();
+  
+  osKernelStart();
+  for (;;);
 }
 
 /*@}*/

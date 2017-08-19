@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : th_ModbusMaster.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ * This file is part of "uModbusMaster"
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -35,16 +35,6 @@
 #include <stdio.h>
 
 /*@}*/ 
-
-/**
- * @addtogroup thread
- */
-
-/*@{*/
-
-#include "./thread.h"
-
-/*@}*/
 
 /**
  * @addtogroup modules
@@ -82,24 +72,23 @@ uMBM_Device_t mbm_SensorHub_0;
  
 /*@{*/
 
-osThreadId modbusMaster_ThreadID;
+osThreadId_t modbusMaster_ThreadID;
 
-void modbusMaster_Thread(void const *arg) {
-  for (;;) {
-    uMBM_Poll(uMBM_GetDev(SensorHub, 0));
-  }
-}
-osThreadDef(modbusMaster_Thread, osPriorityNormal , 1, 0);
-
-
-void modbusMaster_ThreadStart(void) {
+__NO_RETURN void modbusMaster_Thread(void *argument) {
   extern pMBM_Event_t mbm_Event;
   extern pMBM_Serial_t mbm_Serial;
   extern pMBM_Timer_t mbm_Timer;
   uMBM_CoreInit(uMBM_GetDev(SensorHub, 0), &mbm_Event, &mbm_Serial, &mbm_Timer);
   uMBM_Enable(uMBM_GetDev(SensorHub, 0));
   
-  modbusMaster_ThreadID = osThreadCreate(osThread(modbusMaster_Thread), NULL);
+  for (;;) {
+    uMBM_Poll(uMBM_GetDev(SensorHub, 0));
+  }
+}
+
+
+void modbusMaster_ThreadStart(void) {
+  modbusMaster_ThreadID = osThreadNew(modbusMaster_Thread, NULL, NULL);
 }
 
 /*@}*/

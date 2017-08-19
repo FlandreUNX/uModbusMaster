@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : pmContext.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ * This file is part of "uModbusMaster"
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -29,14 +29,11 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
- 
 /* ----------------------- Modbus core include files -----------------------------*/
-#include "../core/mbmType.h"
-#include "../core/mbmPort.h"
-
+#include "../Core/mbmType.h"
+#include "../Core/mbmPort.h"
 /* ----------------------- OS support include files -----------------------------*/
-#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
-
+#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 /* ----------------------- Hardware support include files -----------------------------*/
 
 #if MBM_USE_CONTEXT == 1

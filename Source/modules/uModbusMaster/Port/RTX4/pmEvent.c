@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : pmEvent.c
- * This file is part of "uModbusMaster"
+ *  Copyright (C) <2017>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -35,7 +35,7 @@
 #include "../core/mbmPort.h"
 
 /* ----------------------- OS support include files -----------------------------*/
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
+#include "cmsis_os.h"                   // ARM::CMSIS:RTOS:Keil RTX
 
 /* ----------------------- Hardware support include files -----------------------------*/
 #include "stm32f0xx.h"                  // Device header
@@ -47,11 +47,14 @@
 
 /*@{*/
 
-osMessageQueueId_t mbm_Msg_ID;
+osMessageQDef(mbm_Msg, 8, uint32_t);
+osMessageQId(mbm_Msg_ID);
 
-osSemaphoreId_t mbm_Sem_ID;
+osSemaphoreDef(mbm_Sem);
+osSemaphoreId(mbm_Sem_ID);
 
-osMessageQueueId_t mbm_UserMsg_ID;
+osMessageQDef(mbm_UserMsg, 8, uint32_t);
+osMessageQId(mbm_UserMsg_ID);
 
 /*@}*/
 
@@ -102,8 +105,8 @@ pMBM_Event_t mbm_Event = {
  * @return uMBM_ErrCode_t 
  */
 uMBM_ErrCode_t pMBM_EventInit(void) {
-  mbm_Msg_ID = osMessageQueueNew(8, sizeof(uint32_t), NULL);
-  mbm_UserMsg_ID = osMessageQueueNew(8, sizeof(uint32_t), NULL);
+  mbm_Msg_ID = osMessageCreate(osMessageQ(mbm_Msg), NULL);
+  mbm_UserMsg_ID = osMessageCreate(osMessageQ(mbm_UserMsg), NULL);
   
   return MBM_ERR_OK;
 }
@@ -119,7 +122,7 @@ uMBM_ErrCode_t pMBM_EventInit(void) {
  */
 void pMBM_EventPost(uMBM_Event_t event) {
   /*该函数有可能在IRQ中执行,所以延时等待必须=0*/
-  osMessageQueuePut(mbm_Msg_ID, &event, 0, 0);
+  osMessagePut(mbm_Msg_ID, event, 0);
 }
 
 
@@ -132,10 +135,10 @@ void pMBM_EventPost(uMBM_Event_t event) {
  * @return uMBM_Event_t 
  */
 uMBM_Event_t pMBM_EventGet(void) {
-  uMBM_Event_t event;
+  osEvent event;
   
-  osMessageQueueGet(mbm_Msg_ID, &event, NULL, osWaitForever);
-  return (uMBM_Event_t)(event);
+  event = osMessageGet(mbm_Msg_ID, osWaitForever);
+  return (uMBM_Event_t)event.value.v;
 }
 
 /*@}*/
@@ -155,7 +158,7 @@ uMBM_Event_t pMBM_EventGet(void) {
  * @return uMBM_ErrCode_t 
  */
 uMBM_ErrCode_t pMBM_SemaphoreInit(void) {
-  mbm_Sem_ID = osSemaphoreNew(1, 1, NULL);
+  mbm_Sem_ID = osSemaphoreCreate(osSemaphore(mbm_Sem), 1);
   
   return MBM_ERR_OK;
 }
@@ -170,14 +173,7 @@ uMBM_ErrCode_t pMBM_SemaphoreInit(void) {
  * @return [bool] -> 获取结果 
  */
 bool pMBM_SemaphoreWait(uint32_t timeout) {
-  osStatus_t val =  osSemaphoreAcquire(mbm_Sem_ID, timeout);
-  
-  if (val == osOK) {
-    return true;
-  }
-  else {
-    return false;
-  }
+  return osSemaphoreWait(mbm_Sem_ID, timeout) > 0 ? true : false;
 }
 
 
@@ -211,7 +207,7 @@ void pMBM_SemaphoreRelease(void) {
  */
 void pMBM_UserEventPost(uMBM_Event_t event) {
   /*该函数有可能在IRQ中执行,所以延时等待必须=0*/
-  osMessageQueuePut(mbm_UserMsg_ID, (void *)event, 0, 0);
+  osMessagePut(mbm_UserMsg_ID, event, 0);
 }
 
 
@@ -224,10 +220,10 @@ void pMBM_UserEventPost(uMBM_Event_t event) {
  * @return uMBM_Event_t 
  */
 uMBM_Event_t pMBM_UserEventGet(void) {
-  void *event;
+  osEvent event;
   
-  osMessageQueueGet(mbm_UserMsg_ID, &event, NULL, osWaitForever);
-  return (uMBM_Event_t)((uint32_t)event);
+  event = osMessageGet(mbm_UserMsg_ID, osWaitForever);
+  return (uMBM_Event_t)event.value.v;
 }
 
 /*@}*/

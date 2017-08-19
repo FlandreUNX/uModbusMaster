@@ -24,7 +24,6 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
-
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmPort.h"

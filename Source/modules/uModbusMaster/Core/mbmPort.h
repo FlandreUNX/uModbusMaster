@@ -27,9 +27,8 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
-
 /* ----------------------- Modbus core include files -----------------------------*/
-#include "../core/mbmType.h"
+#include "../Core/mbmType.h"
 
 /**
  * @addtogroup Event port functions define

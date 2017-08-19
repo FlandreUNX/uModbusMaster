@@ -24,12 +24,10 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
- 
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmType.h"
 #include "../mbmConfig.h"
-
 
 #if MBM_FUNC_DISC_ENABLED == 1
 

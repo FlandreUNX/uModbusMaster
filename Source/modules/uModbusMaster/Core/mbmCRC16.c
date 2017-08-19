@@ -24,11 +24,9 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
- 
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmType.h"
-
 
 /**
  * @addtogroup CRC16 const define

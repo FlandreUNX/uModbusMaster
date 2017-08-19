@@ -24,14 +24,12 @@
 /* ----------------------- ANSI-C include files -----------------------------*/
 #include <stdbool.h>
 #include <stdint.h>
- 
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmType.h"
 #include "../mbmConfig.h"
 
 #if MBM_FUNC_INPUT_ENABLED == 1
-
 
 /**
  * @addtogroup 使用例子
