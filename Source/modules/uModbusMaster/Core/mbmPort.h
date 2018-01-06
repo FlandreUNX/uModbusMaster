@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmPort.h
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 /* ----------------------- Modbus core include files -----------------------------*/
-#include "../Core/mbmType.h"
+#include "../core/mbmType.h"
 
 /**
  * @addtogroup Event port functions define
@@ -60,7 +60,7 @@ typedef struct {
 typedef struct {
   void *mbm_Device;    /**< 该端口的宿主 */
   
-  uint16_t baudRate;    /**< 串口波特率 */
+  uint32_t baudRate;    /**< 串口波特率 */
   
   uMBM_ErrCode_t (*pMBM_SerialInit)(void);
   

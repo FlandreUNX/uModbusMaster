@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmFuncDisc.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -29,6 +29,7 @@
 #include "./mbmType.h"
 #include "../mbmConfig.h"
 
+
 #if MBM_FUNC_DISC_ENABLED == 1
 
 /**
@@ -51,7 +52,7 @@
     for (;;);
   }
   else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv);
+    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
     coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
   }
  */
@@ -89,46 +90,36 @@
 
 /*@{*/
 
-/**
- * 读取从机DiscreteInput寄存器数据
- * @note pack.data.length为待读取数量
- *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
- *
- * @return [uMBM_ErrCode_t] -> 操作结果
- */
 uMBM_ErrCode_t uMBM_DiscreteInput_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁*/
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址*/
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_READ_DISCRETE_INPUTS;
   
-  /*2 bytes 访问寄存器地址*/
+  /* 2 bytes 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*2 bytes 访问寄存器数量*/
+  /* 2 bytes 访问寄存器数量 */
   PDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET] = pack->data.length >> 8;
   PDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET + 1] = pack->data.length;
              
-  /*1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length)*/
+  /* 1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length) */
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_READ_SIZE);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -157,8 +148,8 @@ uMBM_ErrCode_t mbm_DiscreteInput_Read_Calllback(uMBM_Device_t *dev, uint8_t *src
   address -= 1;
   
   if ((address >= MBM_DISCRETE_INPUT_START) && (address + nDiscrete <= MBM_DISCRETE_INPUT_START + MBM_DISCRETE_INPUT_NDISCRETES)) {
-    regIndex = (uint16_t)(address - MBM_DISCRETE_INPUT_START) / 8;
-    regBitIndex = (uint16_t)(address - MBM_DISCRETE_INPUT_START) % 8;
+    regIndex = (uint16_t) (address - MBM_DISCRETE_INPUT_START) / 8;
+    regBitIndex = (uint16_t) (address - MBM_DISCRETE_INPUT_START) % 8;
     
     while (nReg > 1) {
       uMBM_Util_SetBits(&regBuffer[regIndex++], regBitIndex, 8, *src++);
@@ -193,14 +184,14 @@ uMBM_ErrCode_t mbm_DiscreteInput_Read_Calllback(uMBM_Device_t *dev, uint8_t *src
  * 主机调用该函数分离接收到的Discrete寄存器
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
 uMBM_Exception_t mbm_DiscreteInput_Read_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
   
-  uMBM_Device_t *dev = (uMBM_Device_t *)mbm;
+  uMBM_Device_t *dev = (uMBM_Device_t *) mbm;
   
   uint16_t rxPDUFramelength = dev->rxPDULength;
   
@@ -212,22 +203,22 @@ uMBM_Exception_t mbm_DiscreteInput_Read_Func(void *mbm) {
   uint8_t byteCount;
   
   if (rxPDUFramelength >= MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_READ_SIZE_MIN) {
-    regAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
-    regAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
+    regAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
+    regAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
     regAddress++;
     
-    discreteCount = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET] << 8);
-    discreteCount |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET + 1]);
+    discreteCount = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET] << 8);
+    discreteCount |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_DISCCNT_OFFSET + 1]);
     
     /**
      * Test if the quantity of coils is a multiple of 8. If not last
      * byte is only partially field with unused coils set to zero. 
      */
     if((discreteCount & 0x0007 ) != 0) {
-      byteCount = (uint8_t)(discreteCount / 8 + 1);
+      byteCount = (uint8_t) (discreteCount / 8 + 1);
     }
     else {
-      byteCount = (uint8_t)(discreteCount / 8);
+      byteCount = (uint8_t) (discreteCount / 8);
     }
     
     /**

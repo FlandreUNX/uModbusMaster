@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbm.h
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -142,8 +142,10 @@ extern uMBM_ErrCode_t uMBM_Poll(uMBM_Device_t *dev);
 
 /*@{*/
 
-extern uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer);
-extern uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer);
+extern uint16_t uMBM_GetValueBufferCount(uMBM_Device_t *dev);
+
+extern uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer, uint16_t count);
+extern uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer, uint16_t count);
 
 extern uMBM_ErrCode_t uMBM_UserEvent2ErrorCode(uMBM_Event_t event);
 extern uMBM_Exception_t uMBM_GetCurrentException(uMBM_Device_t *dev);

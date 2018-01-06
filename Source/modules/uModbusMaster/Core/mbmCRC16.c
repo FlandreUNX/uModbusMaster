@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmCRC16.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -27,6 +27,7 @@
 /* ----------------------- Modbus core include files -----------------------------*/
 #include "../mbm.h"
 #include "./mbmType.h"
+
 
 /**
  * @addtogroup CRC16 const define
@@ -99,7 +100,7 @@ static const uint8_t CRC16_LO[] = {
  * @param *data 数据
  * @param length 长度
  *
- * @return [uint16_t] -> 计算结果
+ * @return [uint16_t], 计算结果
  */
 uint16_t mbm_CRC16Calc(uint8_t *data, uint16_t length) {
   uint8_t crcHI = 0xFF;
@@ -108,11 +109,11 @@ uint16_t mbm_CRC16Calc(uint8_t *data, uint16_t length) {
   
   while (length--) {
     index = crcLO ^ *(data++);
-    crcLO = (uint8_t)(crcHI ^ CRC16_HI[index]);
+    crcLO = (uint8_t) (crcHI ^ CRC16_HI[index]);
     crcHI = CRC16_LO[index];
   }
   
-  return (uint16_t)(crcHI << 8 | crcLO);
+  return (uint16_t) (crcHI << 8 | crcLO);
 }
 
 /*@}*/

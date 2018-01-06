@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbm.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -31,6 +31,7 @@
 #include "./mbmPort.h"
 #include "./mbmCRC16.h"
 #include "../mbmConfig.h"
+
 
 /**
  * @addtogroup modbus 方法集合
@@ -325,18 +326,32 @@ uMBM_Exception_t uMBM_GetCurrentException(uMBM_Device_t *dev) {
 
 
 /**
+ * 读取mbm协议栈缓冲的数据数量
+ * @note u16
+ *
+ * @param *dev 主机指针
+ *
+ * @return [uint8_t]-> 数量
+ */
+uint16_t uMBM_GetValueBufferCount(uMBM_Device_t *dev) {
+  return dev->valueBufferCount;
+}
+
+
+/**
  * 读取mbm协议栈缓冲的数据
  * @note u16
  *
  * @param *dev 主机指针
  * @param *buffer 需要存放的缓冲器
+ * @param count 需要获取的数量
  *
  * @return [uint8_t]-> 读取数量
  */
-uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer) {
-  memcpy(buffer, dev->v16Buffer, dev->valueBufferCount);
+uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer, uint16_t count) {
+  memcpy(buffer, dev->v16Buffer, count * 2);
   
-  return dev->valueBufferCount;
+  return count;
 }
 
 
@@ -346,13 +361,14 @@ uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer) {
  *
  * @param *dev 主机指针
  * @param *buffer 需要存放的缓冲器
+ * @param count 需要获取的数量
  *
  * @return [uint16_t]-> 读取数量
  */
-uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer) {
-  memcpy(buffer, dev->v8Buffer, dev->valueBufferCount);
+uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer, uint16_t count) {
+  memcpy(buffer, dev->v8Buffer, count);
   
-  return dev->valueBufferCount;
+  return count;
 }
 
 /*@}*/
@@ -419,34 +435,34 @@ uMBM_ErrCode_t mbm_RTUSendStartup(uMBM_Device_t *dev) {
  */
 void mbm_RTUTxProcess(uMBM_Device_t *dev) {
   switch (dev->txState) {
-    /*发送中*/
+    /* 发送中 */
     case (MBM_TX_XMIT) : {
-      /*IT_TC发生一次发送一字节*/
+      /* IT_TC发生一次发送一字节 */
       if (dev->txBufferLength != 0) {
         dev->serial->pMBM_SerialSendByte(*(dev->txBufferPos));
         
         dev->txBufferPos += 1;
         dev->txBufferLength -= 1;
       }
-      /*发送完毕*/
+      /* 发送完毕 */
       else {
-        /*切换状态*/
+        /* 切换状态 */
         dev->txState = MBM_TX_XFWR;
         
-        /*失能发送,使能接收*/
+        /* 失能发送,使能接收 */
         dev->serial->pMBM_SerialEnable(false, true);
 
-        /*启动等待回文定时器*/
+        /* 启动等待回文定时器 */
         dev->timeMode = MBM_TMODE_RESPOND_TIMEOUT;
         dev->timer->pMBM_TimerDisable();
         dev->timer->pMBM_RespondTimerEnable();
       }
     }break;
     
+    case (MBM_TX_XFWR) :
     case (MBM_TX_IDLE) : {
-    }break;
-    
-    case (MBM_TX_XFWR) : {
+      /* 失能发送,使能接收 */
+      dev->serial->pMBM_SerialEnable(false, true);
     }break;
   }
 }
@@ -685,7 +701,7 @@ uMBM_Exception_t mbm_FunctionExecute(uMBM_Device_t *dev) {
    /* If receive frame has exception .The receive function code highest bit is 1.*/
   if (funcCode >> 7) {
     /*截取错误数据*/
-    exception = (uMBM_Exception_t)dev->rxPDUFrame[MBM_PDU_DATA_OFFSET];
+    exception = (uMBM_Exception_t) dev->rxPDUFrame[MBM_PDU_DATA_OFFSET];
   }
   else {
     for (uint8_t i = 0; i < MBM_FUNC_HANDLERS_MAX; i++) {

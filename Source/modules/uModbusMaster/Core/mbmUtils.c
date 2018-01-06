@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmUtils.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -103,16 +103,16 @@ void uMBM_Util_SetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits, uin
   /**
    * Calculate byte offset for first byte containing the bit values starting at usBitOffset.
    */
-  byteOffset = (uint16_t)((bitOffset) / BITS_UINT8);
+  byteOffset = (uint16_t) ((bitOffset) / BITS_UINT8);
   
   /*How many bits precede our bits to set.*/
-  nPreBits = (uint16_t)(bitOffset - byteOffset * BITS_UINT8);
+  nPreBits = (uint16_t) (bitOffset - byteOffset * BITS_UINT8);
   
   /*Move bit field into position over bits to set*/
   newValue <<= nPreBits;
   
   /*Prepare a mask for setting the new bits.*/
-  mask = (uint16_t)((1 << (uint16_t)nBits) - 1);
+  mask = (uint16_t) ((1 << (uint16_t)nBits) - 1);
   mask <<= bitOffset - byteOffset * BITS_UINT8;
   
   /*copy bits into temporary storage.*/
@@ -120,11 +120,11 @@ void uMBM_Util_SetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits, uin
   wordBuf |= dataArea[byteOffset + 1] << BITS_UINT8;
   
   /*Zero out bit field bits and then or value bits into them.*/
-  wordBuf = (uint16_t)((wordBuf & (~mask)) | newValue);
+  wordBuf = (uint16_t) ((wordBuf & (~mask)) | newValue);
   
   /*move bits back into storage*/
-  dataArea[byteOffset] = (uint8_t)(wordBuf & 0xFF);
-  dataArea[byteOffset + 1] = (uint8_t)(wordBuf >> BITS_UINT8);
+  dataArea[byteOffset] = (uint8_t) (wordBuf & 0xFF);
+  dataArea[byteOffset + 1] = (uint8_t) (wordBuf >> BITS_UINT8);
 }
 
 
@@ -136,7 +136,7 @@ void uMBM_Util_SetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits, uin
  * @param bitOffset 位设置的起始地址: 第一个位的偏移为0
  * @param nBits 需要读取的位的数量: 该值必须小于8
  *
- * @return [uint8_t] -> 该位状态
+ * @return [uint8_t], 该位状态
  */
 uint8_t uMBM_Util_GetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits) {
   int16_t wordBuf;
@@ -145,13 +145,13 @@ uint8_t uMBM_Util_GetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits) 
   uint16_t nPreBits;
   
   /*Calculate byte offset for first byte containing the bit values starting at usBitOffset. */
-  byteOffset = (uint16_t)((bitOffset) / BITS_UINT8);
+  byteOffset = (uint16_t) ((bitOffset) / BITS_UINT8);
   
   /*How many bits precede our bits to set.*/
-  nPreBits = (uint16_t)(bitOffset - byteOffset * BITS_UINT8);
+  nPreBits = (uint16_t) (bitOffset - byteOffset * BITS_UINT8);
   
   /*Prepare a mask for setting the new bits.*/
-  mask = (uint16_t)((1 << (uint16_t)nBits) - 1);
+  mask = (uint16_t) ((1 << (uint16_t)nBits) - 1);
   
   /*copy bits into temporary storage.*/
   wordBuf = dataArea[byteOffset];
@@ -163,7 +163,7 @@ uint8_t uMBM_Util_GetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits) 
   /*mask away bits above the requested bitfield.*/
   wordBuf &= mask;
 
-  return (uint8_t)wordBuf;
+  return (uint8_t) wordBuf;
 }
 
 /*@}*/

@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmConfig.h
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -34,7 +34,7 @@
  * 响应超时值
  * @note none
  */
-#define RESPOND_TIMEOUT_MS   (100)   
+#define RESPOND_TIMEOUT_MS   (200)   
 
 /*@}*/
 
@@ -48,7 +48,7 @@
  * Maximum number of Modbus functions codes the protocol stack should support.
  * @note none
  */
-#define MBM_FUNC_HANDLERS_MAX    (16)
+#define MBM_FUNC_HANDLERS_MAX    (8)
 
 /**
  * mbm存放从机返回数据的缓冲器最大值
@@ -75,7 +75,7 @@
  * Report Slave ID
  * @note none
  */
-#define MBM_FUNC_OTHER_REP_SLAVEID_ENABLED    (1)
+#define MBM_FUNC_OTHER_REP_SLAVEID_ENABLED    (0)
 
 /**
  * Input Registers
@@ -99,7 +99,7 @@
  * Colis Registers
  * @note none
  */
-#define MBM_FUNC_DISC_ENABLED   (1)
+#define MBM_FUNC_DISC_ENABLED   (0)
 
 /*@}*/
 
@@ -110,10 +110,10 @@
 /*@{*/
 
 #define MBM_REG_INPUT_START    (0)
-#define MBM_REG_INPUT_NREGS    (10)
+#define MBM_REG_INPUT_NREGS    (16)
 
 #define MBM_REG_HOLDING_START     (0)
-#define MBM_REG_HOLDING_NREGS     (10)
+#define MBM_REG_HOLDING_NREGS     (16)
 
 #define MBM_DISCRETE_INPUT_START        (0)
 #define MBM_DISCRETE_INPUT_NDISCRETES   (8)

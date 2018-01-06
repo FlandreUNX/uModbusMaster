@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmFuncInput.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -31,6 +31,7 @@
 
 #if MBM_FUNC_INPUT_ENABLED == 1
 
+
 /**
  * @addtogroup 使用例子
  * @note none
@@ -50,7 +51,7 @@
   }
   else {
     uint16_t rcvInputReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg, 10);
   }
  */
 
@@ -97,38 +98,38 @@
  * @param *pack 目标请求包
  * @param timout 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return [uMBM_ErrCode_t], 操作结果
  */
 uMBM_ErrCode_t uMBM_InputReg_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_READ_INPUT_REGISTER;
   
-  /*2 bytes 访问寄存器地址*/
+  /* 2 bytes 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*2 bytes 访问寄存器数量*/
+  /* 2 bytes 访问寄存器数量 */
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] = pack->data.length >> 8;
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1] = pack->data.length;
              
-  /*1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length)*/
+  /* 1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length) */
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_READ_SIZE);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -153,8 +154,13 @@ uMBM_ErrCode_t mbm_InputReg_Read_Calllback(uMBM_Device_t *dev, uint8_t *src, int
   
   address -= 1;
   
-  if ((address >= MBM_REG_INPUT_START) && (address + nRegs <= MBM_REG_INPUT_START + MBM_REG_INPUT_NREGS)) {
-    regIndex = address - MBM_REG_INPUT_START;
+  if ((address >= MBM_REG_INPUT_START) && (nRegs <= MBM_REG_INPUT_NREGS)) {
+    if (address + nRegs <= MBM_REG_INPUT_START + MBM_REG_INPUT_NREGS) {
+      regIndex = address - MBM_REG_INPUT_START;
+    }
+    else {
+      regIndex = 0;
+    }
     
     while (nRegs > 0) {
       regInputBuffer[regIndex] = *src++ << 8;
@@ -184,7 +190,7 @@ uMBM_ErrCode_t mbm_InputReg_Read_Calllback(uMBM_Device_t *dev, uint8_t *src, int
  * 主机调用该函数分离接收到的Input寄存器数据
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -202,15 +208,15 @@ uMBM_Exception_t mbm_InputReg_Read_Func(void *mbm) {
   uint16_t regCount;
   
   
-  /*分割数据*/
+  /* 分割数据 */
   if (rxPDUFramelength >= MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_READ_SIZE_MIN) {
-    regAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
-    regAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
+    regAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
+    regAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
     
     regAddress += 1;
     
-    regCount = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] << 8);
-    regCount |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1]);
+    regCount = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] << 8);
+    regCount |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1]);
     
     /* Check if the number of registers to read is valid. If not
      * return Modbus illegal data value exception.

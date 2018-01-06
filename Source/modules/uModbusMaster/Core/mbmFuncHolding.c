@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmFuncHolding.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -39,7 +39,8 @@
 /*@{*/
 
 /* ----------------------- uMBM_HoldingReg_Read -----------------------------*/
-/**  uMBM_GeneralReqPack_t pack;
+/**
+  uMBM_GeneralReqPack_t pack;
   pack.destAddr = 0x01;
   pack.data.length = 10;
   pack.regAddr = 0;
@@ -49,9 +50,8 @@
   }
   else {
     uint16_t rcvHoldingReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg);
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, 10);
   }
-
  */
  
 /* ----------------------- uMBM_HoldingReg_SingleWrite -----------------------------*/
@@ -100,7 +100,7 @@
   }
   else {
     uint16_t rcvHoldingReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg);
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, 10);
   }
  */
 
@@ -200,42 +200,42 @@
  * 读取从机Holding寄存器
  * @note pack.data.length为待读取数量
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_HoldingReg_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_READ_HOLDING_REGISTER;
   
-  /*2 bytes 访问寄存器地址*/
+  /* 2 bytes 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*2 bytes 访问寄存器数量*/
+  /* 2 bytes 访问寄存器数量 */
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] = pack->data.length >> 8;
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1] = pack->data.length;
              
-  /*1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length)*/
+  /* 1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length) */
   mbm_SetTxPDULength(dev, 5);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -248,42 +248,42 @@ uMBM_ErrCode_t uMBM_HoldingReg_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *p
  * 往从机写入单个Holding寄存器数据
  * @note pack.data.value为待发送数据
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_HoldingReg_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_WRITE_REGISTER;
   
-  /*2 bytes 访问寄存器地址*/
+  /* 2 bytes 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*2 bytes 寄存器值*/
+  /* 2 bytes 寄存器值 */
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] = pack->data.value >> 8;
   PDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1] = pack->data.value;
              
-  /*1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length)*/
+  /* 1Byte (func code) + 2Bytes (dest reg addr) + 2Bytes (reg read length) */
   mbm_SetTxPDULength(dev, 5);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -296,37 +296,37 @@ uMBM_ErrCode_t uMBM_HoldingReg_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPa
  * 往从机写入多个Holding寄存器数据
  * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_HoldingReg_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*请求执行方法*/
+  /* 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_WRITE_MULTIPLE_REGISTERS;
   
-  /*访问寄存器地址*/
+  /* 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*访问寄存器数量*/
+  /* 访问寄存器数量 */
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET] = pack->data.length >> 8;
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET + 1] = pack->data.length;
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_BYTECNT_OFFSET] = pack->data.length * 2;
   
-  /*填充待发送数据*/
+  /* 填充待发送数据 */
   PDUFrame += MBM_PDU_REQ_WRITE_MUL_VALUES_OFFSET;
   
   uint16_t index = 0;
@@ -338,10 +338,10 @@ uMBM_ErrCode_t uMBM_HoldingReg_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPac
   
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_WRITE_MUL_SIZE_MIN + pack->data.length * 2);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -354,23 +354,23 @@ uMBM_ErrCode_t uMBM_HoldingReg_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPac
  * 往从机写入多个Holding寄存器数据并读入多个Holding寄存器数据
  * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
- * @param *dev 主机
- * @param *pack2Tx 发送请求包
- * @param *pack2Rx 接收请求包
+ * @param *dev, 主机
+ * @param *pack2Tx, 发送请求包
+ * @param *pack2Rx, 接收请求包
  * @param timout 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_HoldingReg_MultiReadWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack2Tx, uMBM_GeneralReqPack_t *pack2Rx, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack2Tx->destAddr;
   
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_READWRITE_MULTIPLE_REGISTERS;
@@ -399,10 +399,10 @@ uMBM_ErrCode_t uMBM_HoldingReg_MultiReadWrite(uMBM_Device_t *dev, uMBM_GeneralRe
   
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_READWRITE_SIZE_MIN + pack2Tx->data.length * 2);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -428,21 +428,17 @@ uMBM_ErrCode_t mbm_HoldingReg_Calllback(uMBM_Device_t *dev, uint8_t *src, int16_
   /* it already plus one in modbus function method. */
   address -= 1;
   
-  if ((address >= MBM_REG_HOLDING_START) && (address + nRegs <= MBM_REG_HOLDING_START + MBM_REG_HOLDING_NREGS)) {
-    regIndex = address - MBM_REG_HOLDING_START;
-    
+  if ((address >= MBM_REG_HOLDING_START) && (nRegs <= MBM_REG_HOLDING_NREGS)) {
+    if (address + nRegs <= MBM_REG_HOLDING_START + MBM_REG_HOLDING_NREGS) {
+      regIndex = address - MBM_REG_HOLDING_START;
+    }
+    else {
+      regIndex = 0;
+    }
+
     switch (mode) {
+      case (MBM_REG_WRITE) :
       case (MBM_REG_READ) : {
-        while (nRegs > 0) {
-          holdingRegBuffer[regIndex] = *src++ << 8;
-          holdingRegBuffer[regIndex] |= *src++;
-      
-          regIndex += 1;
-          nRegs -= 1;
-        }
-      }break;
-      
-      case (MBM_REG_WRITE) : {
         while (nRegs > 0) {
           holdingRegBuffer[regIndex] = *src++ << 8;
           holdingRegBuffer[regIndex] |= *src++;
@@ -474,7 +470,7 @@ uMBM_ErrCode_t mbm_HoldingReg_Calllback(uMBM_Device_t *dev, uint8_t *src, int16_
  * 主机调用该函数将分离接收到的Holding寄存器数据到Buffer
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -491,15 +487,15 @@ uMBM_Exception_t mbm_HoldingReg_Read_Func(void *mbm) {
   uint16_t regAddress;
   uint16_t regCount;
   
-  /*分割数据*/
+  /* 分割数据 */
   if (rxPDUFramelength >= MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_READ_SIZE_MIN) {
-    regAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
-    regAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
+    regAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] << 8);
+    regAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET + 1]);
     
     regAddress += 1;
     
-    regCount = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] << 8);
-    regCount |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1]);
+    regCount = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET] << 8);
+    regCount |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READ_REGCNT_OFFSET + 1]);
     
     /* Check if the number of registers to read is valid. If not
      * return Modbus illegal data value exception.
@@ -529,7 +525,7 @@ uMBM_Exception_t mbm_HoldingReg_Read_Func(void *mbm) {
  * 主机调用该函数将发送后返回的数据分离到Buffer
  * @note HoldingReg SingleWrite
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -544,8 +540,8 @@ uMBM_Exception_t mbm_HoldingReg_SingleWrite_Func(void *mbm) {
   uint16_t regAddress;
   
   if (rxPDUFramelength == (MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_WRITE_SIZE)) {
-    regAddress = (uint16_t)(rxPDUFrame[MBM_PDU_FUNC_WRITE_ADDR_OFFSET] << 8);
-    regAddress |= (uint16_t)(rxPDUFrame[MBM_PDU_FUNC_WRITE_ADDR_OFFSET + 1]);
+    regAddress = (uint16_t) (rxPDUFrame[MBM_PDU_FUNC_WRITE_ADDR_OFFSET] << 8);
+    regAddress |= (uint16_t) (rxPDUFrame[MBM_PDU_FUNC_WRITE_ADDR_OFFSET + 1]);
     regAddress += 1;
     
     /* Make callback to update the value. */
@@ -567,7 +563,7 @@ uMBM_Exception_t mbm_HoldingReg_SingleWrite_Func(void *mbm) {
  * 主机调用该函数将发送后返回的数据分离到Buffer
  * @note HoldingReg MultiWrite
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -586,16 +582,16 @@ uMBM_Exception_t mbm_HoldingReg_MultiWrite_Func(void *mbm) {
   uint16_t regByteCount;
   
   if (rxPDUFramelength == (MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_WRITE_MUL_SIZE)) {
-    /*获取发送地址*/
-    regAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET] << 8);
-    regAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET + 1]);
+    /* 获取发送地址 */
+    regAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET] << 8);
+    regAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET + 1]);
     regAddress += 1;
     
-    /*获取返回数据中的寄存器数量*/
-    regCount = (uint16_t)(rxPDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET] << 8);
-    regCount |= (uint16_t)(rxPDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET + 1]);
+    /* 获取返回数据中的寄存器数量 */
+    regCount = (uint16_t) (rxPDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET] << 8);
+    regCount |= (uint16_t) (rxPDUFrame[MBM_PDU_REQ_WRITE_MUL_REGCNT_OFFSET + 1]);
     
-    /*获取发送数据中的寄存器数量*/
+    /* 获取发送数据中的寄存器数量 */
     regByteCount = txPDUFrame[MBM_PDU_REQ_WRITE_MUL_BYTECNT_OFFSET];
     
     if ((regCount * 2) == regByteCount) {
@@ -621,7 +617,7 @@ uMBM_Exception_t mbm_HoldingReg_MultiWrite_Func(void *mbm) {
  * 主机调用该函数将发送后返回的数据分离到Buffer
  * @note HoldingReg MultiReadWrite
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -642,19 +638,19 @@ uMBM_Exception_t mbm_HoldingReg_MultiReadWrite_Func(void *mbm) {
   uint16_t regWriteCount;
   
   if (rxPDUFramelength >= MBM_PDU_SIZE_MIN + MBM_PDU_FUNC_READWRITE_SIZE_MIN) {
-    regReadAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_READ_ADDR_OFFSET] << 8);
-    regReadAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_READ_ADDR_OFFSET + 1]);
+    regReadAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_READ_ADDR_OFFSET] << 8);
+    regReadAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_READ_ADDR_OFFSET + 1]);
     regReadAddress += 1;
     
-    regReadCount = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_READ_REGCNT_OFFSET] << 8);
-    regReadCount |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_READ_REGCNT_OFFSET + 1]);
+    regReadCount = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_READ_REGCNT_OFFSET] << 8);
+    regReadCount |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_READ_REGCNT_OFFSET + 1]);
     
-    regWriteAddress = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_ADDR_OFFSET] << 8);
-    regWriteAddress |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_ADDR_OFFSET + 1]);
+    regWriteAddress = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_ADDR_OFFSET] << 8);
+    regWriteAddress |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_ADDR_OFFSET + 1]);
     regWriteAddress++;
     
-    regWriteCount = (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_REGCNT_OFFSET] << 8);
-    regWriteCount |= (uint16_t)(txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_REGCNT_OFFSET + 1]);
+    regWriteCount = (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_REGCNT_OFFSET] << 8);
+    regWriteCount |= (uint16_t) (txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_REGCNT_OFFSET + 1]);
     
     if ((regReadCount * 2) == rxPDUFrame[MBM_PDU_FUNC_READWRITE_READ_BYTECNT_OFFSET]) {
       uMBM_ErrCode_t errCode = mbm_HoldingReg_Calllback(dev, &txPDUFrame[MBM_PDU_REQ_READWRITE_WRITE_VALUES_OFFSET], regWriteAddress, regWriteCount, MBM_REG_WRITE);

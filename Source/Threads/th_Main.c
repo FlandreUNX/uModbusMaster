@@ -89,7 +89,7 @@ __NO_RETURN void th_Main(void *argument) {
       for (;;);
     }
     else {
-      rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
+      rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg, 1);
     }
   }
 }

@@ -5,7 +5,7 @@
  *   \_,_|_|  |_\___/\__,_|_.__/\_,_/__/_|  |_\__,_/__/\__\___|_|  
  *                                                                
  * File      : mbmFuncCoils.c
- *  Copyright (C) <2017>  <FlandreUNX>
+ *  Copyright (C) <2018>  <FlandreUNX>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as
@@ -52,7 +52,7 @@
     for (;;);
   }
   else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv);
+    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
     coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
   }
  */
@@ -157,25 +157,25 @@
  * 读取从机Coils寄存器数据
  * @note pack.data.length为待读取数量
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_Coils_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_READ_COILS;
   
   PDUFrame[MBM_PDU_REQ_READ_ADDR_OFFSET] = pack->regAddr >> 8;
@@ -186,10 +186,10 @@ uMBM_ErrCode_t uMBM_Coils_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, 
              
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_READ_SIZE);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -202,45 +202,45 @@ uMBM_ErrCode_t uMBM_Coils_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, 
  * 写从机Coils寄存器
  * @note pack.data.value为待写数据
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_Coils_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
   if ((pack->data.value != 0xFF00) && (pack->data.value != 0x0000)) {
     return MBM_ERR_ILL_ARG;
   }
   
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /* 1 byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_WRITE_SINGLE_COIL;
   
-  /*2 bytes 访问寄存器地址*/
+  /* 2 bytes 访问寄存器地址 */
   PDUFrame[MBM_PDU_REQ_WRITE_ADDR_OFFSET] = pack->regAddr >> 8;
   PDUFrame[MBM_PDU_REQ_WRITE_ADDR_OFFSET + 1] = pack->regAddr;
              
-  /*2 bytes 访问寄存器值*/
+  /* 2 bytes 访问寄存器值 */
   PDUFrame[MBM_PDU_REQ_WRITE_VALUE_OFFSET] = pack->data.value >> 8;
   PDUFrame[MBM_PDU_REQ_WRITE_VALUE_OFFSET + 1] = pack->data.value;
              
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_WRITE_SIZE);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -253,29 +253,29 @@ uMBM_ErrCode_t uMBM_Coils_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t 
  * 多个数据写从机Coils寄存器
  * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
- * @param *dev 主机
- * @param *pack 目标请求包
- * @param timout 超时值
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
  *
- * @return [uMBM_ErrCode_t] -> 操作结果
+ * @return uMBM_ErrCode_t, 操作结果
  */
 uMBM_ErrCode_t uMBM_Coils_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
   if (pack->data.length > MBM_PDU_REQ_WRITE_MUL_COILCNT_MAX) {
     return MBM_ERR_ILL_ARG;
   }
   
-  /*查询同步锁*/
+  /* 查询同步锁 */
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
     return MBM_ERR_BUSY;
   }
   
-  /*获取缓冲器,填充数据*/
+  /* 获取缓冲器,填充数据 */
   uint8_t *PDUFrame = mbm_GetTxPDUBuffer(dev);
   
-  /*设置目标地址*/
+  /* 设置目标地址 */
   dev->destAddress = pack->destAddr;
   
-  /*1 byte 请求执行方法*/
+  /*  byte 请求执行方法 */
   PDUFrame[MBM_PDU_FUNC_OFFSET] = MBM_FUNC_WRITE_MULTIPLE_COILS;
   
   PDUFrame[MBM_PDU_REQ_WRITE_MUL_ADDR_OFFSET] = pack->regAddr >> 8;
@@ -302,10 +302,10 @@ uMBM_ErrCode_t uMBM_Coils_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *
   
   mbm_SetTxPDULength(dev, MBM_PDU_SIZE_MIN + MBM_PDU_REQ_WRITE_MUL_SIZE_MIN + byteCount);
   
-  /*标记发送事件,请求协议栈处理事务*/
+  /* 标记发送事件,请求协议栈处理事务 */
   dev->event->pMBM_EventPost(MBM_EV_FRAME_SENT);
   
-  /*等待协议栈发送处理结果*/
+  /* 等待协议栈发送处理结果 */
   uMBM_Event_t event = dev->event->pMBM_UserEventGet();
 
   dev->event->pMBM_SemaphoreRelease();
@@ -337,9 +337,9 @@ uMBM_ErrCode_t mbm_Coils_Calllback(uMBM_Device_t *dev, uint8_t *value, int16_t a
     regBitIndex = (uint16_t)(address - MBM_COIL_START) % 8;
     
     switch (mode) {
-      /*将接收数据写进缓冲器*/
+      /* 将接收数据写进缓冲器 */
       case (MBM_REG_READ) :
-      /*将发送数据回写进缓冲器*/
+      /* 将发送数据回写进缓冲器 */
       case (MBM_REG_WRITE) : {
         while (nReg > 1) {
           uMBM_Util_SetBits(&coilsBuffer[regIndex++], regBitIndex, 8, *value++);
@@ -375,7 +375,7 @@ uMBM_ErrCode_t mbm_Coils_Calllback(uMBM_Device_t *dev, uint8_t *value, int16_t a
  * 主机调用该函数将分离接收到的Coils寄存器数据到Buffer
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -444,7 +444,7 @@ uMBM_Exception_t mbm_Coils_Read_Func(void *mbm) {
  * 主机调用该函数将接收到的报文分析,并将发送的数据回写进缓冲器
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -472,10 +472,10 @@ uMBM_Exception_t mbm_Coils_SingleWrite_Func(void *mbm) {
       buffer[1] = 0;
           
       if(rxPDUFrame[MBM_PDU_FUNC_WRITE_VALUE_OFFSET] == 0xFF) {
-          buffer[0] = 1;
+        buffer[0] = 1;
       }
       else {
-          buffer[0] = 0;
+        buffer[0] = 0;
       }
       
       uMBM_ErrCode_t errCode = mbm_Coils_Calllback(dev, &buffer[0], regAddress, 1, MBM_REG_WRITE);
@@ -500,7 +500,7 @@ uMBM_Exception_t mbm_Coils_SingleWrite_Func(void *mbm) {
  * 主机调用该函数将接收到的报文分析,并将发送的数据回写进缓冲器
  * @note none
  *
- * @param *mbm 主机
+ * @param *mbm, 主机
  *
  * @return uMBM_Exception_t
  */
@@ -529,8 +529,8 @@ uMBM_Exception_t mbm_Coils_MultiWrite_Func(void *mbm) {
     
     byteCount = txPDUFrame[MBM_PDU_REQ_WRITE_MUL_BYTECNT_OFFSET];
     
-    /*Compute the number of expected bytes in the request.*/
-    if((coilsCount & 0x0007) != 0) {
+    /* Compute the number of expected bytes in the request. */
+    if ((coilsCount & 0x0007) != 0) {
       byteVerify = (uint8_t)(coilsCount / 8 + 1);
     }
     else {
