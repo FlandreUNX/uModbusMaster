@@ -28,7 +28,7 @@ uModbusMaster基于Freemodubus协议栈以及[armink/FreeModbus_Slave-Master-RTT
 
 Rev.D版本更新如下:
 
-  - 修正uMBM_GetBuffer_16/uMBM_GetBuffer_8读取可能的错误,增加读取数量入口(PS:没有越界,请注意count的大小有没有越界)
+  - 修正uMBM_GetBuffer_16/uMBM_GetBuffer_8读取可能的错误,增加读取数量入口(PS:没有越界,请注意count的大小有没有越界)
   - 增加uMBM_GetValueBufferCount方法,获取当前valueBuffer存放了多少有效数据
   - 修改使用说明,如下文所示
   
