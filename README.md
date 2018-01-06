@@ -27,7 +27,9 @@
 uModbusMaster基于Freemodubus协议栈以及[armink/FreeModbus_Slave-Master-RTT-STM32][1]重新编写的.源由是因为armink作者的modbus协议过于庞大,以及大部分可能不会用到master以及slave一起的,所以本版程序将两者进行分离,并只提取出master.对其代码进行美化以及基本全注释(供新手学习).此外对主机模块进行全隔离,能实现单个MCU系统里面实现多个Master主机同时运行,详细见下文所述.
 
 Rev.D版本更新如下:
-  -fix 修正uMBM_GetBuffer_16/uMBM_GetBuffer_8读取可能的错误,增加读取数量入口(PS:没有越界,请注意count的大小有没有越界)
+  - 修正uMBM_GetBuffer_16/uMBM_GetBuffer_8读取可能的错误,增加读取数量入口(PS:没有越界,请注意count的大小有没有越界)
+  - 增加uMBM_GetValueBufferCount方法,获取当前valueBuffer存放了多少有效数据
+  - 修改使用说明,如下文所示
 Rev.C版本特征如下:
 
  - 主机接口与Freemodbus接口基本一致;
@@ -149,7 +151,11 @@ uModbusMaster 采用一个专用守护线程来维持数据事件的处理;里�
   }
   else {
     uint16_t rcvHoldingReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg);
+    /* 采用获取缓存数量读取 */
+    uint16_t valueBufferCount = uMBM_GetValueBufferCount(uMBM_GetDev(SensorHub, 0);
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, valueBufferCount));
+    /* 采用固定数量获取 */
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, 10));
   }
 ```
 
@@ -199,7 +205,7 @@ uModbusMaster 采用一个专用守护线程来维持数据事件的处理;里�
   }
   else {
     uint16_t rcvInputReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg);
+    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg, 10);
   }
 ```
 
@@ -221,7 +227,7 @@ uModbusMaster 采用一个专用守护线程来维持数据事件的处理;里�
     for (;;);
   }
   else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv);
+    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
     coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
   }
 ```
@@ -274,7 +280,7 @@ uModbusMaster 采用一个专用守护线程来维持数据事件的处理;里�
     for (;;);
   }
   else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv);
+    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
     coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
   }
 ```
@@ -314,6 +320,8 @@ void modbusMaster_ThreadStart(void) {
 
 ### 4.1 单例主机的使用
 
+** 基于CMSIS-RTX5 **
+
 在一个**th_ModbusMaster_1.c**中生成一个主机并且将他启动,接着我们可以在别的地方对他进行访问或者使用他来收发
 
 **th_Main.c**
@@ -351,6 +359,8 @@ int main(void) {
 ```
 
 ### 4.2 多例主机的使用
+
+** 基于CMSIS-RTX5 **
 
 如果我们使用多个主机可以按照以下的方式来操作
 **th_ModbusMaster.c**
