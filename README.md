@@ -27,9 +27,11 @@
 uModbusMaster基于Freemodubus协议栈以及[armink/FreeModbus_Slave-Master-RTT-STM32][1]重新编写的.源由是因为armink作者的modbus协议过于庞大,以及大部分可能不会用到master以及slave一起的,所以本版程序将两者进行分离,并只提取出master.对其代码进行美化以及基本全注释(供新手学习).此外对主机模块进行全隔离,能实现单个MCU系统里面实现多个Master主机同时运行,详细见下文所述.
 
 Rev.D版本更新如下:
+
   - 修正uMBM_GetBuffer_16/uMBM_GetBuffer_8读取可能的错误,增加读取数量入口(PS:没有越界,请注意count的大小有没有越界)
   - 增加uMBM_GetValueBufferCount方法,获取当前valueBuffer存放了多少有效数据
   - 修改使用说明,如下文所示
+  
 Rev.C版本特征如下:
 
  - 主机接口与Freemodbus接口基本一致;
