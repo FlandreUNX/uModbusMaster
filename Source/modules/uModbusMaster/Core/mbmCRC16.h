@@ -30,6 +30,7 @@
 
 /**
  * @addtogroup CRC16 functions
+ * @note Private
  */
 
 /*@{*/

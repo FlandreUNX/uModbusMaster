@@ -20,11 +20,6 @@
  *  You should have received a copy of the GNU Affero General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-/**
- *  该文件为各种主机功能函数以及各种变量定义
- *  @note none
- */
  
 #ifndef MBM_H_
 #define MBM_H_
@@ -38,7 +33,7 @@
 #include "./mbmConfig.h"
 
 /**
- * @addtogroup mbm device define
+ * @addtogroup Modbus master device define
  */
 
 /*@{*/
@@ -60,11 +55,11 @@ typedef struct {
   
   uint16_t txPDULength;
   
-  uint8_t *rxPDUFrame;       /**< 接收到数据PDU帧起点 */
+  uint8_t *rxPDUFrame;     /**< 接收到数据PDU帧起点 */
   uint16_t rxPDULength;
   
-  uint8_t destAddress;    /**< 目标地址 */
-  uint8_t rcvAddress;     /**< 主机接收到的地址 */
+  uint8_t destAddress;     /**< 目标地址 */
+  uint8_t rcvAddress;      /**< 主机接收到的地址 */
   
   uMBM_TimeMode_t timeMode;
   
@@ -79,18 +74,18 @@ typedef struct {
 /*@}*/
 
 /**
- * @addtogroup mbm 控制类方法
- * @note 用户使用
+ * @addtogroup Modbus master 控制类方法
+ * @note Public
  */
 
 /*@{*/
 
 /**
- * 创建一个mbm主机
- * @note none
+ * 创建一个Modbus master主机
+ * @note [Rev.1]
  *
- * @param name 主机名称
- * @param number 主机序号
+ * @param name, 主机名称
+ * @param number, 主机序号
  *
  * @return uMBM_Device_t
  */
@@ -99,11 +94,11 @@ typedef struct {
 
 
 /**
- * 声明一个mbm主机
- * @note none
+ * 声明一个Modbus master主机
+ * @note [Rev.1]
  *
- * @param name 主机名称
- * @param number 主机序号
+ * @param name, 主机名称
+ * @param number, 主机序号
  *
  * @return uMBM_Device_t
  */
@@ -112,11 +107,11 @@ typedef struct {
    
   
 /**
- * 获取一个mbm主机
- * @note none
+ * 获取一个Modbus master主机
+ * @note [Rev.1]
  *
- * @param name 主机名称
- * @param number 主机序号
+ * @param name, 主机名称
+ * @param number, 主机序号
  *
  * @return uMBM_Device_t
  */
@@ -136,8 +131,8 @@ extern uMBM_ErrCode_t uMBM_Poll(uMBM_Device_t *dev);
 /*@}*/
 
 /**
- * @addtogroup mbm Functions
- * @note 用户使用
+ * @addtogroup Modbus master 方法类
+ * @note Public
  */
 
 /*@{*/
@@ -169,8 +164,8 @@ extern uMBM_ErrCode_t uMBM_DiscreteInput_Read(uMBM_Device_t *dev, uMBM_GeneralRe
 /*@}*/
 
 /**
- * @addtogroup mbm 设置类方法
- * @note 内核调用,非用户使用
+ * @addtogroup Modbus master设置类方法
+ * @note Private
  */
 
 /*@{*/
@@ -179,18 +174,6 @@ extern uint8_t* mbm_GetTxPDUBuffer(uMBM_Device_t *dev);
 
 extern void mbm_SetTxPDULength(uMBM_Device_t *dev, uint16_t length);
 extern uint8_t mbm_GetTxPDULength(uMBM_Device_t *dev);
-
-/**
- * @addtogroup mbm 回调类方法
- * @note 内核调用,非用户使用
- */
-
-/*@{*/
-
-extern void pMBM_SerialTC_ISR(pMBM_Serial_t *serial);
-extern void pMBM_SerialRXNE_ISR(pMBM_Serial_t *serial);
-
-extern void pMBM_Timer_ISR(pMBM_Timer_t *timer);
 
 /*@}*/
 

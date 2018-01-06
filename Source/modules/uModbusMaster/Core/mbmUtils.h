@@ -30,6 +30,7 @@
 
 /**
  * @addtogroup 获取宿主结构体指针
+ * @note Private
  */
 
 /*@{*/
@@ -43,12 +44,13 @@
 
 /**
  * 获取当前元素所在的宿主结构项
+ * @note [Rev.1]
  *
- * @param ptr 宿主结构体下的元素指针
- * @param type 宿主类型
- * @param name 元素在宿主结构体里面的名称
+ * @param ptr, 宿主结构体下的元素指针
+ * @param type, 宿主类型
+ * @param name, 元素在宿主结构体里面的名称
  * 
- * @retval 宿主结构体指针
+ * @retval , 宿主结构体指针
  */
 #define struct_Entry(ptr, type, name) \
     (type*)((uint8_t*)(ptr)-offset_of(type, name))
@@ -57,6 +59,7 @@
 
 /**
  * @addtogroup modbus 工具类方法
+ * @note Public
  */
 
 /*@{*/

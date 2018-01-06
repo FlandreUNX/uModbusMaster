@@ -32,6 +32,7 @@
 
 /**
  * @addtogroup Event port functions define
+   @note Public
  */
 
 /*@{*/
@@ -53,6 +54,7 @@ typedef struct {
 
 /**
  * @addtogroup Serial port functions define
+ * @note Public
  */
 
 /*@{*/
@@ -75,6 +77,7 @@ typedef struct {
 
 /**
  * @addtogroup Timer port functions define
+ * @note Public
  */
 
 /*@{*/
@@ -92,6 +95,20 @@ typedef struct {
   
   void (*pMBM_RespondTimerEnable)(void);
 } pMBM_Timer_t;
+
+/*@}*/
+
+/**
+ * @addtogroup Modbus master回调类方法
+ * @note Private
+ */
+
+/*@{*/
+
+extern void mbm_Serial_TC_ISR(pMBM_Serial_t *serial);
+extern void mbm_Serial_Rx_ISR(pMBM_Serial_t *serial);
+
+extern void mbm_Timer_ISR(pMBM_Timer_t *timer);
 
 /*@}*/
 

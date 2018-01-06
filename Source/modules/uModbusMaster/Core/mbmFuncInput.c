@@ -31,35 +31,9 @@
 
 #if MBM_FUNC_INPUT_ENABLED == 1
 
-
-/**
- * @addtogroup 使用例子
- * @note none
- */
-
-/*@{*/
-
-/* ----------------------- uMBM_InputReg_Read -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.data.length = 10;
-  pack.regAddr = 0;
-  uMBM_ErrCode_t err = uMBM_InputReg_Read(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (err != MBM_ERR_OK) {
-    for (;;);
-  }
-  else {
-    uint16_t rcvInputReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvInputReg, 10);
-  }
- */
-
-/*@}*/
-
-
 /**
  * @addtogroup input相关定义
+ * @note Private
  */
 
 /*@{*/
@@ -85,14 +59,14 @@
 
 /**
  * @addtogroup 用户方法
- * @note 用户使用
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 读取从机Input寄存器
- * @note none
+ * @note [Rev.1]
  *
  * @param *dev 主机
  * @param *pack 目标请求包
@@ -141,7 +115,7 @@ uMBM_ErrCode_t uMBM_InputReg_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pac
 
 /**
  * @addtogroup mbm input callback
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
@@ -181,18 +155,18 @@ uMBM_ErrCode_t mbm_InputReg_Read_Calllback(uMBM_Device_t *dev, uint8_t *src, int
 
 /**
  * @addtogroup mbm方法
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 主机调用该函数分离接收到的Input寄存器数据
- * @note none
+ * @note [Rev.1]
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_InputReg_Read_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;

@@ -33,34 +33,8 @@
 #if MBM_FUNC_DISC_ENABLED == 1
 
 /**
- * @addtogroup 使用例子
- * @note none
- */
-
-/*@{*/
-
-/* ----------------------- uMBM_DiscreteInput_Read -----------------------------*/
-/**
-  uint8_t coilDataRcv;
-  uint8_t coilValue;
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.regAddr = 0;
-  pack.data.length = 1;
-  uMBM_ErrCode_t errCode = uMBM_DiscreteInput_Read(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (errCode != MBM_ERR_OK) {
-    for (;;);
-  }
-  else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
-    coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
-  }
- */
-
-/*@}*/
-
-/**
  * @addtogroup 相关定义
+ * @note Private
  */
 
 /*@{*/
@@ -85,11 +59,21 @@
 
 /**
  * @addtogroup 用户方法
- * @note 用户使用
+ * @note Public
  */
 
 /*@{*/
 
+/**
+ * 读取从机DiscreteInput寄存器数据
+ * @note [Rev.1] pack.data.length为待读取数量
+ *
+ * @param *dev, 主机
+ * @param *pack, 目标请求包
+ * @param timout, 超时值
+ *
+ * @return uMBM_ErrCode_t, 操作结果
+ */
 uMBM_ErrCode_t uMBM_DiscreteInput_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, uint32_t timeout) {
   /* 查询同步锁*/
   if (!dev->event->pMBM_SemaphoreWait(timeout)) {
@@ -131,7 +115,7 @@ uMBM_ErrCode_t uMBM_DiscreteInput_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t
 
 /**
  * @addtogroup mbm Discrete Input callback
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
@@ -175,18 +159,18 @@ uMBM_ErrCode_t mbm_DiscreteInput_Read_Calllback(uMBM_Device_t *dev, uint8_t *src
 
 /**
  * @addtogroup mbm Discrete Input Func
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 主机调用该函数分离接收到的Discrete寄存器
- * @note none
+ * @note [Rev.1]
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_DiscreteInput_Read_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;

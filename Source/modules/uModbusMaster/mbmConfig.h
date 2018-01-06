@@ -25,7 +25,8 @@
 #define MBMCONFIG_H_
 
 /**
- * @addtogroup modbus timer config
+ * @addtogroup Modbus master timer config
+ * @note Public
  */
 
 /*@{*/
@@ -39,7 +40,8 @@
 /*@}*/
 
 /**
- * @addtogroup modbus general config
+ * @addtogroup Modbus master general config
+ * @note Public
  */
 
 /*@{*/
@@ -48,25 +50,26 @@
  * Maximum number of Modbus functions codes the protocol stack should support.
  * @note none
  */
-#define MBM_FUNC_HANDLERS_MAX    (8)
+#define MBM_FUNC_HANDLERS_MAX            (8)
 
 /**
  * mbm存放从机返回数据的缓冲器最大值
  * @note none
  */
-#define MBM_BUFFER_MAX    (16)
-
-/**
- * mbm是否使用上下文保护
- * @note none
- */
-#define MBM_USE_CONTEXT    (0)
+#define MBM_BUFFER_MAX                   (16)
+                                         
+/**                                      
+ * mbm是否使用上下文保护                 
+ * @note none                            
+ */                                      
+#define MBM_USE_CONTEXT                  (0)
 
 
 /*@}*/
 
 /**
- * @addtogroup functions general config
+ * @addtogroup Modbus master functions general config
+ * @note Public
  */
 
 /*@{*/
@@ -81,45 +84,46 @@
  * Input Registers
  * @note none
  */
-#define MBM_FUNC_INPUT_ENABLED     (1)
-
-/**
- * Holding Registers
- * @note none
- */
-#define MBM_FUNC_HOLDING_ENABLED   (1)
-
-/**
- * Colis Registers
- * @note none
- */
-#define MBM_FUNC_COILS_ENABLED   (1)
-
-/**
- * Colis Registers
- * @note none
- */
-#define MBM_FUNC_DISC_ENABLED   (0)
+#define MBM_FUNC_INPUT_ENABLED                (1)
+                                              
+/**                                           
+ * Holding Registers                          
+ * @note none                                 
+ */                                           
+#define MBM_FUNC_HOLDING_ENABLED              (1)
+                                              
+/**                                           
+ * Colis Registers                            
+ * @note none                                 
+ */                                           
+#define MBM_FUNC_COILS_ENABLED                (1)
+                                              
+/**                                           
+ * Colis Registers                            
+ * @note none                                 
+ */                                           
+#define MBM_FUNC_DISC_ENABLED                 (0)
 
 /*@}*/
 
 /**
- * @addtogroup Register functions general config
+ * @addtogroup Modbus master register functions general config
+ * @note Public
  */
 
 /*@{*/
 
-#define MBM_REG_INPUT_START    (0)
-#define MBM_REG_INPUT_NREGS    (16)
+#define MBM_REG_INPUT_START             (0)
+#define MBM_REG_INPUT_NREGS             (16)
 
-#define MBM_REG_HOLDING_START     (0)
-#define MBM_REG_HOLDING_NREGS     (16)
+#define MBM_REG_HOLDING_START           (0)
+#define MBM_REG_HOLDING_NREGS           (16)
 
 #define MBM_DISCRETE_INPUT_START        (0)
 #define MBM_DISCRETE_INPUT_NDISCRETES   (8)
         
-#define MBM_COIL_START      (0)
-#define MBM_COIL_NCOILS     (8)
+#define MBM_COIL_START                  (0)
+#define MBM_COIL_NCOILS                 (8)
 
 /*@}*/
 

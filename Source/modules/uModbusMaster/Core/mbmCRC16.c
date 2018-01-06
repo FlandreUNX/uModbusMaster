@@ -28,9 +28,9 @@
 #include "../mbm.h"
 #include "./mbmType.h"
 
-
 /**
  * @addtogroup CRC16 const define
+ * @note Private
  */
 
 /*@{*/
@@ -89,18 +89,19 @@ static const uint8_t CRC16_LO[] = {
 
 /**
  * @addtogroup CRC16 functions
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 计算一定长度数据的CRC16值
- * @note none
+ * @note [Rev.1]
  *
- * @param *data 数据
- * @param length 长度
+ * @param *data, 数据
+ * @param length, 长度
  *
- * @return [uint16_t], 计算结果
+ * @return uint16_t, 计算结果
  */
 uint16_t mbm_CRC16Calc(uint8_t *data, uint16_t length) {
   uint8_t crcHI = 0xFF;

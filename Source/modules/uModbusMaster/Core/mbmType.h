@@ -30,6 +30,7 @@
 
 /**
  * @addtogroup modbus PDU/Serial Lin PDU define
+ * @note Public
  */
 
 /*@{*/
@@ -74,6 +75,7 @@
 
 /**
  * @addtogroup modbus command define
+ * @note Public
  */
 
 /*@{*/
@@ -104,6 +106,7 @@
 
 /**
  * @addtogroup Error code Type define
+ * @note Public
  */
 
 /*@{*/
@@ -134,6 +137,7 @@ typedef enum {
 
 /**
  * @addtogroup functions exception Type define
+ * @note Public
  */
 
 /*@{*/
@@ -159,6 +163,7 @@ typedef enum {
 
 /**
  * @addtogroup Core Type define
+ * @note Public
  */
 
 /*@{*/
@@ -245,6 +250,7 @@ typedef enum {
 
 /**
  * @addtogroup General data pack define
+ * @note Public
  */
 
 /*@{*/
@@ -263,6 +269,7 @@ typedef struct {
 
 /**
  * @addtogroup General modbus functions define
+ * @note Public
  */
 
 /*@{*/

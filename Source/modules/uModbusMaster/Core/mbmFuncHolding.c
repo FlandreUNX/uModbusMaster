@@ -32,83 +32,8 @@
 #if MBM_FUNC_HOLDING_ENABLED == 1
 
 /**
- * @addtogroup 使用例子
- * @note none
- */
-
-/*@{*/
-
-/* ----------------------- uMBM_HoldingReg_Read -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.data.length = 10;
-  pack.regAddr = 0;
-  uMBM_ErrCode_t err = uMBM_HoldingReg_Read(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (err != MBM_ERR_OK) {
-    for (;;);
-  }
-  else {
-    uint16_t rcvHoldingReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, 10);
-  }
- */
- 
-/* ----------------------- uMBM_HoldingReg_SingleWrite -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.data.value = 0xFF;
-  pack.regAddr = 0;
-  uMBM_ErrCode_t err = uMBM_HoldingReg_SingleWrite(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (err != MBM_ERR_OK) {
-    for (;;);
-  }
- */
- 
-/* ----------------------- uMBM_HoldingReg_MultiWrite -----------------------------*/
-/**
-  uint16_t data[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.data.length = 2;
-  pack.regAddr = 0;
-  pack.multiData = data;
-  uMBM_ErrCode_t err = uMBM_HoldingReg_MultiWrite(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (err != MBM_ERR_OK) {
-    for (;;);
-  }
- */
- 
-/* ----------------------- uMBM_HoldingReg_MultiReadWrite -----------------------------*/
-/**
-  uint16_t data[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  
-  uMBM_GeneralReqPack_t pack2Tx;
-  pack2Tx.destAddr = 0x01;
-  pack2Tx.data.length = 2;
-  pack2Tx.regAddr = 0;
-  pack2Tx.multiData = data;
-  
-  uMBM_GeneralReqPack_t pack2Rx;
-  pack2Rx.data.length = 10;
-  pack2Rx.regAddr = 0;
-  
-  uMBM_ErrCode_t err = uMBM_HoldingReg_MultiReadWrite(uMBM_GetDev(SensorHub, 0), &pack2Tx, &pack2Rx,osWaitForever);
-  if (err != MBM_ERR_OK) {
-    for (;;);
-  }
-  else {
-    uint16_t rcvHoldingReg[10];
-    uint16_t rcvLength = uMBM_GetBuffer_16(uMBM_GetDev(SensorHub, 0), rcvHoldingReg, 10);
-  }
- */
-
-/*@}*/
-
-
-/**
  * @addtogroup 相关定义
+ * @note Private
  */
 
 /*@{*/
@@ -190,15 +115,15 @@
 /*@}*/
 
 /**
- * @addtogroup 相关定义
- * @note 用户使用
+ * @addtogroup 方法
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 读取从机Holding寄存器
- * @note pack.data.length为待读取数量
+ * @note [Rev.1] pack.data.length为待读取数量
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -246,7 +171,7 @@ uMBM_ErrCode_t uMBM_HoldingReg_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *p
 
 /**
  * 往从机写入单个Holding寄存器数据
- * @note pack.data.value为待发送数据
+ * @note [Rev.1] pack.data.value为待发送数据
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -294,7 +219,7 @@ uMBM_ErrCode_t uMBM_HoldingReg_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPa
 
 /**
  * 往从机写入多个Holding寄存器数据
- * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
+ * @note [Rev.1] pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -352,7 +277,7 @@ uMBM_ErrCode_t uMBM_HoldingReg_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPac
 
 /**
  * 往从机写入多个Holding寄存器数据并读入多个Holding寄存器数据
- * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
+ * @note [Rev.1] pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
  * @param *dev, 主机
  * @param *pack2Tx, 发送请求包
@@ -414,7 +339,7 @@ uMBM_ErrCode_t uMBM_HoldingReg_MultiReadWrite(uMBM_Device_t *dev, uMBM_GeneralRe
 
 /**
  * @addtogroup mbm holding callback
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
@@ -461,18 +386,18 @@ uMBM_ErrCode_t mbm_HoldingReg_Calllback(uMBM_Device_t *dev, uint8_t *src, int16_
 
 /**
  * @addtogroup mbm 内核调用方法
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 主机调用该函数将分离接收到的Holding寄存器数据到Buffer
- * @note none
+ * @note [Rev.1] 
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_HoldingReg_Read_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
@@ -523,11 +448,11 @@ uMBM_Exception_t mbm_HoldingReg_Read_Func(void *mbm) {
 
 /**
  * 主机调用该函数将发送后返回的数据分离到Buffer
- * @note HoldingReg SingleWrite
+ * @note [Rev.1] HoldingReg SingleWrite
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_HoldingReg_SingleWrite_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
@@ -561,11 +486,11 @@ uMBM_Exception_t mbm_HoldingReg_SingleWrite_Func(void *mbm) {
 
 /**
  * 主机调用该函数将发送后返回的数据分离到Buffer
- * @note HoldingReg MultiWrite
+ * @note [Rev.1] HoldingReg MultiWrite
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_HoldingReg_MultiWrite_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
@@ -615,11 +540,11 @@ uMBM_Exception_t mbm_HoldingReg_MultiWrite_Func(void *mbm) {
 
 /**
  * 主机调用该函数将发送后返回的数据分离到Buffer
- * @note HoldingReg MultiReadWrite
+ * @note [Rev.1] HoldingReg MultiReadWrite
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_HoldingReg_MultiReadWrite_Func(void *mbm) {
  uMBM_Exception_t exception = MBM_EX_NONE;

@@ -32,7 +32,7 @@
 
 /**
  * @addtogroup 使用例子
- * @note none
+ * @note Public
  */
 
 /*@{*/
@@ -68,6 +68,7 @@
 
 /**
  * @addtogroup modbus 工具类define
+ * @note Private
  */
 
 /*@{*/
@@ -78,18 +79,19 @@
 
 /**
  * @addtogroup modbus 工具类方法
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 设置一个字节缓冲的位
- * @note 这个函数可以实现有效处理位域的功能;存储位域的数值必须是两个字节;一次操作最多可处理8位
+ * @note [Rev.1] 这个函数可以实现有效处理位域的功能;存储位域的数值必须是两个字节;一次操作最多可处理8位
  *
- * @param *dataArea 位存储的缓冲区: 必须是2个字节的倍数
- * @param bitOffset 位设置的起始地址: 第一个位的偏移为0
- * @param nBits 需要修改的位的数量: 该值必须小于8 串口方法集合
- * @param value 位的新值: 在bitOffset中的第一位的值是newValue的最低有效位
+ * @param *dataArea, 位存储的缓冲区: 必须是2个字节的倍数
+ * @param bitOffset, 位设置的起始地址: 第一个位的偏移为0
+ * @param nBits, 需要修改的位的数量: 该值必须小于8 串口方法集合
+ * @param value, 位的新值: 在bitOffset中的第一位的值是newValue的最低有效位
  *
  * @return none 
  */
@@ -105,24 +107,24 @@ void uMBM_Util_SetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits, uin
    */
   byteOffset = (uint16_t) ((bitOffset) / BITS_UINT8);
   
-  /*How many bits precede our bits to set.*/
+  /* How many bits precede our bits to set. */
   nPreBits = (uint16_t) (bitOffset - byteOffset * BITS_UINT8);
   
-  /*Move bit field into position over bits to set*/
+  /* Move bit field into position over bits to set */
   newValue <<= nPreBits;
   
-  /*Prepare a mask for setting the new bits.*/
+  /* Prepare a mask for setting the new bits. */
   mask = (uint16_t) ((1 << (uint16_t)nBits) - 1);
   mask <<= bitOffset - byteOffset * BITS_UINT8;
   
-  /*copy bits into temporary storage.*/
+  /* copy bits into temporary storage. */
   wordBuf = dataArea[byteOffset];
   wordBuf |= dataArea[byteOffset + 1] << BITS_UINT8;
   
-  /*Zero out bit field bits and then or value bits into them.*/
+  /* Zero out bit field bits and then or value bits into them. */
   wordBuf = (uint16_t) ((wordBuf & (~mask)) | newValue);
   
-  /*move bits back into storage*/
+  /* move bits back into storage */
   dataArea[byteOffset] = (uint8_t) (wordBuf & 0xFF);
   dataArea[byteOffset + 1] = (uint8_t) (wordBuf >> BITS_UINT8);
 }
@@ -130,13 +132,13 @@ void uMBM_Util_SetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits, uin
 
 /**
  * 在字节缓冲中读取位
- * @note 这个函数从一个字节中来获取一个位的值;一步最多可以获取8个位的值
+ * @note [Rev.1] 这个函数从一个字节中来获取一个位的值;一步最多可以获取8个位的值
  *
- * @param *dataArea 位存储的缓冲区: 必须是2个字节的倍数
- * @param bitOffset 位设置的起始地址: 第一个位的偏移为0
- * @param nBits 需要读取的位的数量: 该值必须小于8
+ * @param *dataArea, 位存储的缓冲区: 必须是2个字节的倍数
+ * @param bitOffset, 位设置的起始地址: 第一个位的偏移为0
+ * @param nBits, 需要读取的位的数量: 该值必须小于8
  *
- * @return [uint8_t], 该位状态
+ * @return uint8_t, 该位状态
  */
 uint8_t uMBM_Util_GetBits(uint8_t *dataArea, uint16_t bitOffset, uint8_t nBits) {
   int16_t wordBuf;

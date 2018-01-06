@@ -32,9 +32,9 @@
 #include "./mbmCRC16.h"
 #include "../mbmConfig.h"
 
-
 /**
  * @addtogroup modbus 方法集合
+ * @note Private
  */
 
 /*@{*/
@@ -79,6 +79,7 @@ static const uMBM_FunctionHandler_t mbm_FunctionsHandlers[MBM_FUNC_HANDLERS_MAX]
 
 /**
  * @addtogroup mbm context functions
+ * @note Private
  */
 
 /*@{*/
@@ -95,20 +96,21 @@ static const uMBM_FunctionHandler_t mbm_FunctionsHandlers[MBM_FUNC_HANDLERS_MAX]
 
 /**
  * @addtogroup 控制类方法
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 初始化modbus master 协议栈
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
- * @param *event 事件方法集合
- * @param *serial 串口方法集合
- * @param *timer 定时器方法集合
+ * @param *dev, mbm设备
+ * @param *event, 事件方法集合
+ * @param *serial, 串口方法集合
+ * @param *timer, 定时器方法集合
  *
- * @return uMBM_ErrCode_t 
+ * @return uMBM_ErrCode_t, 
  */
 uMBM_ErrCode_t uMBM_CoreInit(uMBM_Device_t *dev, 
                               pMBM_Event_t *event,
@@ -120,7 +122,7 @@ uMBM_ErrCode_t uMBM_CoreInit(uMBM_Device_t *dev,
   dev->serial = serial;
   dev->timer = timer;
   
-  /*初始化Event引擎*/
+  /* 初始化Event引擎 */
   dev->event->pMBM_EventInit();
   if (errCode != MBM_ERR_OK) {
     return errCode;
@@ -130,15 +132,15 @@ uMBM_ErrCode_t uMBM_CoreInit(uMBM_Device_t *dev,
     return errCode;
   }
   
-  /*初始化Serial引擎*/
+  /* 初始化Serial引擎 */
   errCode = dev->serial->pMBM_SerialInit();
   if (errCode != MBM_ERR_OK) {
     return errCode;
   }
   dev->serial->mbm_Device = dev;
                                 
-  /*初始化Timer引擎*/
-  /*T35需要N次的50uS*/
+  /* 初始化Timer引擎 */
+  /* T35需要N次的50uS */
   uint16_t t35_Per50us = 0;
   if (dev->serial->baudRate >= 19200) {
     /* If baudrate > 19200 then we should use the fixed timer values
@@ -174,11 +176,11 @@ uMBM_ErrCode_t uMBM_CoreInit(uMBM_Device_t *dev,
 
 /**
  * 使能modbus master 协议栈
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_ErrCode_t 
+ * @return uMBM_ErrCode_t, 
  */
 uMBM_ErrCode_t uMBM_Enable(uMBM_Device_t *dev) {
   pMBM_EnterCriticalSection();
@@ -195,11 +197,11 @@ uMBM_ErrCode_t uMBM_Enable(uMBM_Device_t *dev) {
 
 /**
  * 失能modbus master 协议栈
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_ErrCode_t 
+ * @return uMBM_ErrCode_t, 
  */
 uMBM_ErrCode_t uMBM_Disable(uMBM_Device_t *dev) {
   pMBM_EnterCriticalSection();
@@ -236,17 +238,18 @@ uMBM_ErrCode_t uMBM_Disable(uMBM_Device_t *dev) {
 
 /**
  * @addtogroup 设置类方法
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 获取mbm发缓冲中的PDU起止
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uint8_t*
+ * @return uint8_t*,
  */
 uint8_t* mbm_GetTxPDUBuffer(uMBM_Device_t *dev) {
   return &(dev->txBuffer[MBM_SL_PDU_PDU_OFFSET]);
@@ -255,10 +258,10 @@ uint8_t* mbm_GetTxPDUBuffer(uMBM_Device_t *dev) {
 
 /**
  * 设置mbm发送缓冲中PDU数据的长度
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
- * @param length PDU长度
+ * @param *dev, mbm设备
+ * @param length, PDU长度
  *
  * @return none
  */
@@ -269,11 +272,11 @@ void mbm_SetTxPDULength(uMBM_Device_t *dev, uint16_t length) {
 
 /**
  * 获取mbm发送缓冲中PDU数据的长度
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uint8_t
+ * @return uint8_t,
  */
 uint8_t mbm_GetTxPDULength(uMBM_Device_t *dev) {
   return dev->txPDULength;
@@ -282,11 +285,11 @@ uint8_t mbm_GetTxPDULength(uMBM_Device_t *dev) {
 
 /**
  * 将用户事件转换成错误代码
- * @note none
+ * @note [Rev.1]
  *
- * @param event 事件
+ * @param event, 事件
  *
- * @return uMBM_ErrCode_t
+ * @return uMBM_ErrCode_t,
  */
 uMBM_ErrCode_t uMBM_UserEvent2ErrorCode(uMBM_Event_t event) {
   switch (event) {
@@ -314,11 +317,11 @@ uMBM_ErrCode_t uMBM_UserEvent2ErrorCode(uMBM_Event_t event) {
 
 /**
  * 读取最近的func异常事件
- * @note none
+ * @note [Rev.1]
  *
- * @param *dev 主机指针
+ * @param *dev, 主机指针
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t uMBM_GetCurrentException(uMBM_Device_t *dev) {
   return dev->currentException;
@@ -327,11 +330,11 @@ uMBM_Exception_t uMBM_GetCurrentException(uMBM_Device_t *dev) {
 
 /**
  * 读取mbm协议栈缓冲的数据数量
- * @note u16
+ * @note [Rev.1]
  *
- * @param *dev 主机指针
+ * @param *dev, 主机指针
  *
- * @return [uint8_t]-> 数量
+ * @return uint8_t, 数量
  */
 uint16_t uMBM_GetValueBufferCount(uMBM_Device_t *dev) {
   return dev->valueBufferCount;
@@ -340,13 +343,13 @@ uint16_t uMBM_GetValueBufferCount(uMBM_Device_t *dev) {
 
 /**
  * 读取mbm协议栈缓冲的数据
- * @note u16
+ * @note [Rev.1]
  *
- * @param *dev 主机指针
- * @param *buffer 需要存放的缓冲器
- * @param count 需要获取的数量
+ * @param *dev, 主机指针
+ * @param *buffer, 需要存放的缓冲器
+ * @param count, 需要获取的数量
  *
- * @return [uint8_t]-> 读取数量
+ * @return uint8_t, 读取数量
  */
 uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer, uint16_t count) {
   memcpy(buffer, dev->v16Buffer, count * 2);
@@ -357,13 +360,13 @@ uint16_t uMBM_GetBuffer_16(uMBM_Device_t *dev, uint16_t *buffer, uint16_t count)
 
 /**
  * 读取mbm协议栈缓冲的数据
- * @note u8
+ * @note [Rev.1]
  *
- * @param *dev 主机指针
- * @param *buffer 需要存放的缓冲器
- * @param count 需要获取的数量
+ * @param *dev, 主机指针
+ * @param *buffer, 需要存放的缓冲器
+ * @param count, 需要获取的数量
  *
- * @return [uint16_t]-> 读取数量
+ * @return uint16_t, 读取数量
  */
 uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer, uint16_t count) {
   memcpy(buffer, dev->v8Buffer, count);
@@ -375,20 +378,21 @@ uint16_t uMBM_GetBuffer_8(uMBM_Device_t *dev, uint8_t *buffer, uint16_t count) {
 
 /**
  * @addtogroup RTU类方法
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 使能mbm发送一个数据帧
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_ErrCode_t
+ * @return uMBM_ErrCode_t,
  */
 uMBM_ErrCode_t mbm_RTUSendStartup(uMBM_Device_t *dev) {
-  /*检查mbm接手状态*/
+  /* 检查mbm接手状态 */
   if (dev->rxState != MBM_RX_IDLE) {
     return MBM_ERR_IO;
   }
@@ -401,13 +405,13 @@ uMBM_ErrCode_t mbm_RTUSendStartup(uMBM_Device_t *dev) {
   dev->txBufferLength = 0;
   dev->txBufferPos = &dev->txBuffer[MBM_SL_PDU_ADDR_OFFSET];
   
-  /*发送首字节为目标地址*/
+  /* 发送首字节为目标地址 */
   dev->txBufferPos[MBM_SL_PDU_ADDR_OFFSET] = dev->destAddress;
   dev->txBufferLength += 1;
   
   dev->txBufferLength += dev->txPDULength;
   
-  /*CRC16校验*/
+  /* CRC16校验 */
   uint16_t crc16 = mbm_CRC16Calc(dev->txBufferPos, dev->txBufferLength);
   dev->txBufferPos[dev->txBufferLength++] = (uint8_t)(crc16 & 0xFF);
   dev->txBufferPos[dev->txBufferLength++] = (uint8_t)(crc16 >> 8);
@@ -427,9 +431,9 @@ uMBM_ErrCode_t mbm_RTUSendStartup(uMBM_Device_t *dev) {
 
 /**
  * mbm底层发送方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
  * @return none
  */
@@ -470,61 +474,61 @@ void mbm_RTUTxProcess(uMBM_Device_t *dev) {
 
 /**
  * mbm底层接收方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
  * @return none
  */
 void mbm_RTURxProcess(uMBM_Device_t *dev) {
   uint8_t recByte;
   
-  /*拉取数据*/
+  /* 拉取数据 */
   recByte = dev->serial->pMBM_SerialReadByte();
   
-  /*检查rx状态*/
+  /* 检查rx状态 */
   switch (dev->rxState) {
-    /*接收态*/
+    /* 接收态 */
     case (MBM_RX_RCV) : {
       dev->timer->pMBM_TimerDisable();
       
-      /*防止溢出*/
+      /* 防止溢出 */
       if (dev->rxBufferPos < MBM_SL_PDU_SIZE_MAX) {
-        /*存放数据*/
+        /* 存放数据 */
         dev->rxBuffer[dev->rxBufferPos++] = recByte;
       }
-      /*数据过大,溢出*/
+      /* 数据过大,溢出 */
       else {
         /*标记错误*/
         dev->rxState = MBM_RX_ERROR;
       }
       
-      /*刷新T3.5*/
+      /* 刷新T3.5 */
       dev->timer->pMBM_T35TimerEnable();
     }break;
     
-    /*空闲状态接收到数据,相当于检测到起止帧,进入接收中状态*/
+    /* 空闲状态接收到数据,相当于检测到起止帧,进入接收中状态 */
     case (MBM_RX_IDLE) : {
       dev->timer->pMBM_TimerDisable();
       
-      /*存放数据*/
+      /* 存放数据 */
       dev->rxBufferPos = 0;
       dev->rxBuffer[dev->rxBufferPos++] = recByte;
       
-      /*切换到接受中状态*/
+      /* 切换到接受中状态 */
       dev->rxState = MBM_RX_RCV;
       
-      /*清空tx状态*/
+      /* 清空tx状态 */
       dev->txState = MBM_TX_IDLE;
       
-      /*启动T3.5定时器*/
+      /* 启动T3.5定时器 */
       dev->timeMode = MBM_TMODE_T35;
       dev->timer->pMBM_T35TimerEnable();
     }break;
     
-    /*接受错误*/
+    /* 接受错误 */
     case (MBM_RX_ERROR) : {
-      /*接收错误后依旧接收到数据,但不存储,继续启动T3.5,直到数据接收完*/
+      /* 接收错误后依旧接收到数据,但不存储,继续启动T3.5,直到数据接收完 */
       dev->timer->pMBM_TimerDisable();
       dev->timer->pMBM_T35TimerEnable();
     }break;
@@ -534,14 +538,14 @@ void mbm_RTURxProcess(uMBM_Device_t *dev) {
 
 /**
  * mbm底层定时器溢出处理方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
  * @return none
  */
 void mbm_RTUTimerExpired(uMBM_Device_t *dev) {
-  /*关闭定时器*/
+  /* 关闭定时器 */
   dev->timer->pMBM_TimerDisable();
   dev->timeMode = MBM_TMODE_IDLE;
   
@@ -549,14 +553,14 @@ void mbm_RTUTimerExpired(uMBM_Device_t *dev) {
    * 检查timer超时时的rx状态
    */
   switch (dev->rxState) {
-    /*接收完毕,T3.5超时*/
+    /* 接收完毕,T3.5超时 */
     case (MBM_RX_RCV) : {
       dev->rxState = MBM_RX_IDLE;
       
       dev->event->pMBM_EventPost(MBM_EV_FRAME_RECEIVED);
     }break;
     
-    /*接收错误,T3.5超时*/
+    /* 接收错误,T3.5超时 */
     case (MBM_RX_ERROR) : {
       dev->rxState = MBM_RX_IDLE;
       
@@ -573,14 +577,14 @@ void mbm_RTUTimerExpired(uMBM_Device_t *dev) {
    * 检查timer超时时的tx状态
    */
   switch (dev->txState) {
-    /*tx状态为发送完毕*/
+    /*t x状态为发送完毕 */
     case (MBM_TX_XFWR) : {
-      /*定时器模式为等待响应,并超时,说明自从发送后没有收到任何数据*/
+      /* 定时器模式为等待响应,并超时,说明自从发送后没有收到任何数据 */
       dev->txState = MBM_TX_IDLE;
       
       dev->currentErrorCode = MBM_ERR_TIMEOUT;
       
-      /*向主机发送超时事件*/
+      /* 向主机发送超时事件 */
       dev->event->pMBM_EventPost(MBM_EV_RESPOND_TIMEOUT);
     }break;
     
@@ -595,28 +599,28 @@ void mbm_RTUTimerExpired(uMBM_Device_t *dev) {
 
 /**
  * mbm 对接收到的数据帧进行预处理
- * @note 主机只能应用于RTU模式
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_ErrCode_t
+ * @return uMBM_ErrCode_t,
  */
 uMBM_ErrCode_t mbm_RTUFrameProcess(uMBM_Device_t *dev) {
   uMBM_ErrCode_t errCode = MBM_ERR_OK;
   
   pMBM_EnterCriticalSection();
   
-  /*检查长度以及检查CRC16*/
+  /* 检查长度以及检查CRC16 */
   if ((dev->rxBufferPos >= MBM_SL_PDU_SIZE_MIN) && (mbm_CRC16Calc(dev->rxBuffer, dev->rxBufferPos) == 0)) {
-    /*首字节为从机返回响应地址*/
+    /* 首字节为从机返回响应地址 */
     dev->rcvAddress = dev->rxBuffer[MBM_SL_PDU_ADDR_OFFSET];
     
-    /*检查从机地址是否匹配*/
+    /* 检查从机地址是否匹配 */
     if (dev->rcvAddress == dev->destAddress) {
-      /*获取PDU接受长度,总长度 - (从机地址1Byte + CRC16校验值2Byte)*/
+      /* 获取PDU接受长度,总长度 - (从机地址1Byte + CRC16校验值2Byte) */
       dev->rxPDULength = dev->rxBufferPos - MBM_SL_PDU_PDU_OFFSET - MBM_SL_PDU_CRC_SIZE;
     
-      /*设置PDU起点*/
+      /* 设置PDU起点 */
       dev->rxPDUFrame = &dev->rxBuffer[MBM_SL_PDU_PDU_OFFSET];
     }
     else {
@@ -636,45 +640,46 @@ uMBM_ErrCode_t mbm_RTUFrameProcess(uMBM_Device_t *dev) {
 
 /**
  * @addtogroup mbm callback方法
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * mbm Serial TC中断回调方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
- * @param *serial mbm 的Serial端口
+ * @param *serial, mbm 的Serial端口
  *
  * @return none
  */
-void pMBM_SerialTC_ISR(pMBM_Serial_t *serial) {
+void mbm_Serial_TC_ISR(pMBM_Serial_t *serial) {
   mbm_RTUTxProcess(serial->mbm_Device);
 }
 
 
 /**
  * mbm Serial RXNE中断回调方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
- * @param *serial mbm 的Serial端口
+ * @param *serial, mbm 的Serial端口
  *
  * @return none
  */
-void pMBM_SerialRXNE_ISR(pMBM_Serial_t *serial) {
+void mbm_Serial_Rx_ISR(pMBM_Serial_t *serial) {
   mbm_RTURxProcess(serial->mbm_Device);
 }
 
 
 /**
  * mbm timer 溢出回调方法
- * @note 该方法被IRQ调用
+ * @note [Rev.1]
  *
  * @param *serial mbm 的Serial端口
  *
  * @return none
  */
-void pMBM_Timer_ISR(pMBM_Timer_t *timer) {
+void mbm_Timer_ISR(pMBM_Timer_t *timer) {
   mbm_RTUTimerExpired(timer->mbm_Device);
 }
 
@@ -682,17 +687,18 @@ void pMBM_Timer_ISR(pMBM_Timer_t *timer) {
 
 /**
  * @addtogroup mbm core方法
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * mbm functions 数据分离
- * @note none
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_FunctionExecute(uMBM_Device_t *dev) {
   uint8_t funcCode = dev->rxPDUFrame[MBM_PDU_FUNC_OFFSET];
@@ -700,18 +706,18 @@ uMBM_Exception_t mbm_FunctionExecute(uMBM_Device_t *dev) {
   
    /* If receive frame has exception .The receive function code highest bit is 1.*/
   if (funcCode >> 7) {
-    /*截取错误数据*/
+    /* 截取错误数据 */
     exception = (uMBM_Exception_t) dev->rxPDUFrame[MBM_PDU_DATA_OFFSET];
   }
   else {
     for (uint8_t i = 0; i < MBM_FUNC_HANDLERS_MAX; i++) {
-      /*匹配到操作码*/
+      /* 匹配到操作码 */
       if (mbm_FunctionsHandlers[i].functionCode == funcCode) {
         exception = mbm_FunctionsHandlers[i].handler(dev);
         
         break;
       }
-      /*没有多余的操作*/
+      /* 没有多余的操作 */
       else if (mbm_FunctionsHandlers[i].functionCode == 0) {
         break;
       }
@@ -721,21 +727,31 @@ uMBM_Exception_t mbm_FunctionExecute(uMBM_Device_t *dev) {
   return exception;
 }
 
+/*@}*/
+
+
+/**
+ * @addtogroup mbm 线程方法
+ * @note Public
+ */
+
+/*@{*/
 
 /**
  * mbm 核心协议栈
- * @note none
+ * @note [Rev.1]
  *
- * @param *dev mbm设备
+ * @param *dev, mbm设备
  *
- * @return uMBM_ErrCode_t
+ * @return uMBM_ErrCode_t,
  */
 uMBM_ErrCode_t uMBM_Poll(uMBM_Device_t *dev) {
   uMBM_Event_t event = dev->event->pMBM_EventGet();
+  
   switch (event) {
-    /*数据请求发送事件*/
+    /* 数据请求发送事件 */
     case (MBM_EV_FRAME_SENT) : {
-      /*启动发送*/
+      /* 启动发送 */
       dev->currentErrorCode = mbm_RTUSendStartup(dev);
       
       if (dev->currentErrorCode != MBM_ERR_OK) {
@@ -743,43 +759,43 @@ uMBM_ErrCode_t uMBM_Poll(uMBM_Device_t *dev) {
       }
     }break;
 
-    /*一帧Frame接收完毕,处理数据*/
+    /* 一帧Frame接收完毕,处理数据 */
     case (MBM_EV_FRAME_RECEIVED) : {
       dev->currentErrorCode = mbm_RTUFrameProcess(dev);
       
-      /*校验失败*/
+      /* 校验失败 */
       if (dev->currentErrorCode != MBM_ERR_OK) {
         dev->event->pMBM_EventPost(MBM_EV_ERROR_RECEIVE);
       }
-      /*向mbm发送执行命令事件*/
+      /* 向mbm发送执行命令事件 */
       else {
         dev->event->pMBM_EventPost(MBM_EV_FUNC_EXECUTE);
       }
     }break;
     
-    /*处理Frame,对指令进行解析*/
+    /* 处理Frame,对指令进行解析 */
     case (MBM_EV_FUNC_EXECUTE) : {
       dev->currentException = mbm_FunctionExecute(dev);
       
-      /*检测到错误码,发送事件*/
+      /* 检测到错误码,发送事件 */
       if (dev->currentException != MBM_EX_NONE) {
         dev->event->pMBM_EventPost(MBM_EV_ERROR_FUNC_EXECUTE);
       }
-      /*一次请求处理完成*/
+      /* 一次请求处理完成 */
       else {
         dev->event->pMBM_UserEventPost(MBM_USER_EV_OK);
       }
     }break;
     
-    /*等待从机响应超时*/
+    /* 等待从机响应超时 */
     case (MBM_EV_RESPOND_TIMEOUT) : {
-      /*向请求者转发操作超时事件*/
+      /* 向请求者转发操作超时事件 */
       dev->event->pMBM_UserEventPost(MBM_USER_EV_RESPOND_TIMEOUT);
     }break;
     
     /*数据有误*/
     case (MBM_EV_ERROR_RECEIVE) : {
-      /*向请求者转发事件*/
+      /* 向请求者转发事件 */
       dev->event->pMBM_UserEventPost(MBM_USER_EV_ERROR_RECEIVE);
     }break;
     

@@ -33,62 +33,8 @@
 #if MBM_FUNC_COILS_ENABLED == 1
 
 /**
- * @addtogroup 使用例子
- * @note none
- */
-
-/*@{*/
-
-/* ----------------------- uMBM_Colis_Read -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.regAddr = 0;
-  pack.data.length = 0x01;
-  uint8_t coilDataRcv;
-  uint8_t coilValue;
-  uMBM_ErrCode_t errCode = uMBM_Coils_Read(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (errCode != MBM_ERR_OK) {
-    for (;;);
-  }
-  else {
-    uMBM_GetBuffer_8(uMBM_GetDev(SensorHub, 0), &coilDataRcv, 1);
-    coilValue = uMBM_Util_GetBits(&coilDataRcv, 0, 1);
-  }
- */
- 
-/* ----------------------- uMBM_Coils_SingleWrite -----------------------------*/
-/**
-  uMBM_GeneralReqPack_t pack;
-  uMBM_ErrCode_t errCode;
-  pack.destAddr = 0x01;
-  pack.regAddr = 0;
-  pack.data.value = 0xFF00;
-
-  errCode = uMBM_Coils_SingleWrite(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (errCode != MBM_ERR_OK) {
-    for (;;);
-  }
- */
- 
-/* ----------------------- uMBM_Coils_MultiWrite -----------------------------*/
-/**
-  uint8_t colisValue[1] = {0xFE};
-  uMBM_GeneralReqPack_t pack;
-  pack.destAddr = 0x01;
-  pack.regAddr = 0;
-  pack.data.length = 8;
-  pack.multiData = (uint16_t *)&colisValue;
-  uMBM_ErrCode_t errCode = uMBM_Coils_MultiWrite(uMBM_GetDev(SensorHub, 0), &pack, osWaitForever);
-  if (errCode != MBM_ERR_OK) {
-    for (;;);
-  }
- */
-
-/*@}*/
-
-/**
  * @addtogroup 相关定义
+ * @note Private
  */
 
 /*@{*/
@@ -148,14 +94,14 @@
 
 /**
  * @addtogroup 用户方法
- * @note 用户使用
+ * @note Public
  */
 
 /*@{*/
 
 /**
  * 读取从机Coils寄存器数据
- * @note pack.data.length为待读取数量
+ * @note [Rev.1] pack.data.length为待读取数量
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -200,7 +146,7 @@ uMBM_ErrCode_t uMBM_Coils_Read(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *pack, 
 
 /**
  * 写从机Coils寄存器
- * @note pack.data.value为待写数据
+ * @note [Rev.1] pack.data.value为待写数据
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -251,7 +197,7 @@ uMBM_ErrCode_t uMBM_Coils_SingleWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t 
 
 /**
  * 多个数据写从机Coils寄存器
- * @note pack.data.length为待发送数据的长度,pack.multiData为待发送数据
+ * @note [Rev.1] pack.data.length为待发送数据的长度,pack.multiData为待发送数据
  *
  * @param *dev, 主机
  * @param *pack, 目标请求包
@@ -317,7 +263,7 @@ uMBM_ErrCode_t uMBM_Coils_MultiWrite(uMBM_Device_t *dev, uMBM_GeneralReqPack_t *
 
 /**
  * @addtogroup mbm holding callback
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
@@ -366,18 +312,18 @@ uMBM_ErrCode_t mbm_Coils_Calllback(uMBM_Device_t *dev, uint8_t *value, int16_t a
 
 /**
  * @addtogroup mbm 内核调用方法
- * @note 内核调用
+ * @note Private
  */
 
 /*@{*/
 
 /**
  * 主机调用该函数将分离接收到的Coils寄存器数据到Buffer
- * @note none
+ * @note [Rev.1]
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_Coils_Read_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
@@ -442,11 +388,11 @@ uMBM_Exception_t mbm_Coils_Read_Func(void *mbm) {
 
 /**
  * 主机调用该函数将接收到的报文分析,并将发送的数据回写进缓冲器
- * @note none
+ * @note [Rev.1]
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_Coils_SingleWrite_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
@@ -498,11 +444,11 @@ uMBM_Exception_t mbm_Coils_SingleWrite_Func(void *mbm) {
 
 /**
  * 主机调用该函数将接收到的报文分析,并将发送的数据回写进缓冲器
- * @note none
+ * @note [Rev.1]
  *
  * @param *mbm, 主机
  *
- * @return uMBM_Exception_t
+ * @return uMBM_Exception_t,
  */
 uMBM_Exception_t mbm_Coils_MultiWrite_Func(void *mbm) {
   uMBM_Exception_t exception = MBM_EX_NONE;
